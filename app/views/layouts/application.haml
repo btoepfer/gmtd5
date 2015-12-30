@@ -1,0 +1,26 @@
+
+/ <!DOCTYPE html>
+!!! 5
+%html
+  %head
+    %meta{ 'name' => "viewport", 'content' => "width=device-width, initial-scale=1.0, maximum-scale=2.0"}
+    %title
+      = "GmTD V5.0"
+      
+    = favicon_link_tag 'favicon.ico'
+    = stylesheet_link_tag "application", media: "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    
+  %body{:id => "GmTD5"}
+    %header
+      %h1
+        Welcome to GmTD Version 5.0.x
+
+      %h2
+        We're using Rails Version 
+        = Rails.version
+        
+    .col-sm-12
+      = yield
+    
