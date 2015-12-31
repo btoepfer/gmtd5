@@ -1,7 +1,6 @@
 body {
-  padding-top: 60px;
+  padding-top: 50px;
 }
-
 
 
 #footer {
@@ -11,7 +10,7 @@ body {
   padding-top:10px;
   /* Set the fixed height of the footer here */
   height: 60px;
-  background-color: #000;
+  background-color: #222;
   color: #fff;
 }
 
