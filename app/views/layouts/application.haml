@@ -13,14 +13,35 @@
     = csrf_meta_tags
     
   %body{:id => "GmTD5"}
-    %header
-      %h1
-        Welcome to GmTD Version 5.0.x
-
-      %h2
-        We're using Rails Version 
-        = Rails.version
+    %nav{:class => "navbar navbar-inverse navbar-fixed-top"}
+      .container
+        .navbar-header
+          %button{:type=>"button", :class=>"navbar-toggle", 'data-toggle'=>"collapse", 'data-target'=>"#navbar", 'aria-expanded'=>"false", 'aria-controls'=>"navbar"}
+            %span{:class => "sr-only"}
+              ="Toggle navigation"
+            %span{:class => "icon-bar"}
+            %span{:class => "icon-bar"}
+            %span{:class => "icon-bar"}
+          = link_to image_tag("GmTD20.jpg", title: "Back to Start", alt: "Start"), root_path
+          
         
-    .col-sm-12
-      = yield
-    
+        #navbar{:class => "navbar-collapse collapse"}
+          // Ist der Benutzer angemeldet
+          - if 1==2
+            .navbar-right
+              %ul{:class=>"nav navbar-nav"}
+                %li
+                  %a{:href=>"#"}
+                    = "Account"
+                %li
+                  %a{:href=>"#"}
+                    = "Log out"
+          - else
+            = render 'layouts/login_form'          
+              
+    .container
+      .row
+        %div{:class => "col-sm-12"}
+          = yield
+            
+    = render 'layouts/footer'

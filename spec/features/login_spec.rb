@@ -6,9 +6,9 @@ RSpec.feature "User can login" do
   end
   
   scenario "Login-Form" do
-    fill_in "User", with: "bernd"
-    fill_in "Password", with: "123456"
-    click_button "OK"
+    fill_in "username", with: "bernd"
+    fill_in "password", with: "123456"
+    click_button "Login"
     expect(page).to have_content "Welcome Bernd"
   end
 end
