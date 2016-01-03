@@ -3,18 +3,21 @@
     .row{:class=>"footer-first-row"}
       %div{:class=>"col-xs-8 text-left"}
         %span
-          %a{ :href=>"#", 'data-toggle'=>"modal", 'data-target'=>"#AboutUs"}
-            About us
+          %a{:href=>"#", 'data-toggle'=>"modal", 'data-target'=>"#AboutUs"}
+            %i{:class=>"fa fa-info-circle"}
+              = t :about_us
         %span
           %a{ :href=>"#", 'data-toggle'=>"modal", 'data-target'=>"#Impressum"}
-            Terms
+            %i{:class=>"fa fa-legal"}
+              = t :terms
         %span
           %a{ :href=>"#", 'data-toggle'=>"modal", 'data-target'=>"#Help"}
-            Help
+            %i{:class=>"fa fa-question-circle"}
+              = t :help
         
       %div{:class=>"col-xs-4 text-right"}
-        %p
-          &copy; 2016 - Bernd C. Toepfer
+        %i{:class=>"fa fa-copyright"}
+          2016 - Bernd C. Toepfer
 
         
 %script
@@ -25,3 +28,4 @@
 
   ga('create', 'UA-57548727-1', 'auto');
   ga('send', 'pageview');
+

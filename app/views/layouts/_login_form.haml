@@ -1,8 +1,8 @@
-%form{:class=>"navbar-form navbar-right"}
-  .form-group
+%form{:class=>"navbar-form navbar-right", :role=>'login'}
+  .form-group{:class => "input-group-sm"}
     %input{:name => "username", :type =>"text", :placeholder=>"Username or Email", :class=>"form-control"}
-  .form-group
+  .form-group{:class => "input-group-sm"}
     %input{:name => "password", :type =>"text", :placeholder=>"Password", :class=>"form-control"}
-  %button{:id => "Login", :type => "submit", :class=>"btn btn-primary"}
+  %button{:id => "Login", :type => "submit", :class=>"btn btn-primary btn-sm"}
     %i{:class=>"fa fa-user"}
     = "Log In"
