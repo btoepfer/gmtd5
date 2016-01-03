@@ -14,7 +14,7 @@
     
   %body{:id => "GmTD5"}
     %nav{:class => "navbar navbar-inverse navbar-fixed-top"}
-      .container
+      .container          
         .navbar-header
           %button{:type=>"button", :class=>"navbar-toggle", 'data-toggle'=>"collapse", 'data-target'=>"#navbar", 'aria-expanded'=>"false", 'aria-controls'=>"navbar"}
             %span{:class => "sr-only"}
@@ -27,15 +27,13 @@
         
         #navbar{:class => "navbar-collapse collapse"}
           // Ist der Benutzer angemeldet
-          - if 1==2
+          - if user_signed_in?
             .navbar-right
               %ul{:class=>"nav navbar-nav"}
                 %li
-                  %a{:href=>"#"}
-                    = "Account"
+                  = link_to "Account", "#"
                 %li
-                  %a{:href=>"#"}
-                    = "Log out"
+                  = link_to "Log out", destroy_user_session_path, method: :delete
           - else
             = render 'layouts/login_form'          
               

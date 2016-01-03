@@ -1,6 +1,6 @@
 #footer
   .container
-    .row{:class=>"footer-first-row"}
+    .row
       %div{:class=>"col-xs-8 text-left"}
         %span
           %a{:href=>"#", 'data-toggle'=>"modal", 'data-target'=>"#AboutUs"}
@@ -14,12 +14,20 @@
           %a{ :href=>"#", 'data-toggle'=>"modal", 'data-target'=>"#Help"}
             %i{:class=>"fa fa-question-circle"}
               = t :help
-        
+              
       %div{:class=>"col-xs-4 text-right"}
         %i{:class=>"fa fa-copyright"}
           2016 - Bernd C. Toepfer
-
-        
+    
+    .row
+      = if notice.present?  
+        %aside{:class=>"notice col-xs-12 text-center"}
+          = t notice
+       
+      = if alert.present?
+        %aside{:class=>"alert col-xs-12 text-center"}
+          = alert
+      
 %script
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
