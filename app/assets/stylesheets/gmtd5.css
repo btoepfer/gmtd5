@@ -1,5 +1,11 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
   padding-top: 50px;
+  padding-bottom: 70px;
 }
 
 
@@ -9,7 +15,7 @@ body {
   width: 100%;
   padding-top:15px;
   /* Set the fixed height of the footer here */
-  height: 80px;
+  height: 60px;
   background-color: #222;
   color: #fff;
 }

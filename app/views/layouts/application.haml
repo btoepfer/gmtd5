@@ -35,11 +35,15 @@
                 %li
                   = link_to "Log out", destroy_user_session_path, method: :delete
           - else
-            = render 'layouts/login_form'          
-              
-    .container
+            = render 'layouts/login_form'     
+          
+    .container    
+      = render 'layouts/breadcrumb'    
       .row
-        %div{:class => "col-sm-12"}
-          = yield
+        = render 'layouts/messages'
+      .row
+        #inhalt
+          %div{:class => "col-sm-12"}
+            = yield
             
     = render 'layouts/footer'
