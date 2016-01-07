@@ -38,12 +38,19 @@
             = render 'layouts/login_form'     
           
     .container    
-      = render 'layouts/breadcrumb'    
-      .row
-        = render 'layouts/messages'
+      //= render 'layouts/breadcrumb'
       .row
         #inhalt
           %div{:class => "col-sm-12"}
             = yield
             
     = render 'layouts/footer'
+  
+    //Am Ende, damit diese Box den Inhalt ueberlagert.
+    = render 'layouts/messages'
+    
+    
+%script
+  $("#message").delay(2000).addClass("in").fadeOut(1000);
+
+  

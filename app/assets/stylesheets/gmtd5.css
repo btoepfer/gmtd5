@@ -24,3 +24,8 @@ body {
   color: #fff;
   margin-right:20px;
 }
+
+#message {
+  top: 50px;
+  position: fixed;
+}
