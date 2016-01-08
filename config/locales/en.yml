@@ -19,8 +19,12 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
+
 en:
   hello: "Hello world"
   terms: "Legal notice"
   email: "Email"
   password: "Password"
+  sign_up: "Sign up"
+  "web based project and task management": "web based project and task management"
+  please_register: "Register for an account"
