@@ -1,0 +1,13 @@
+= devise_error_messages!
+.page-header
+  %h2
+    = t :sign_up
+    %br
+    %small
+      = t :please_register
+      
+%section{:class => "col-sm-6"}
+  = render "devise/registrations/sign_up"
+  
+%section{:class => "col-sm-4 col-sm-offset-right-2"}
+  = render "devise/shared/links"
