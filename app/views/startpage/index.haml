@@ -4,7 +4,7 @@
     .page-header
       %h2
         %i{:class=>"fa fa-check-square-o"}
-        Getting <i>my</i> Things Done
+        Getting <em>my</em> Things Done
         %br
         %small
           = t "web based project and task management"
@@ -27,4 +27,5 @@
    
   
   .col-sm-6
-    .form-group
+    = render "devise/registrations/sign_up"
+    

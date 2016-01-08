@@ -1,6 +1,11 @@
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 
 de:
+  password: "Kennwort"
+  password_confirmation: "Kennwortverfizierung"
+  sign_up: "Registrierung"
+  please_register: "Registrieren Sie sich für ein Benutzerkonto"
+  
   devise:
     confirmations:
       confirmed: "Vielen Dank für Deine Registrierung. Bitte melde dich jetzt an."
