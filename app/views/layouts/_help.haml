@@ -1,0 +1,21 @@
+%div{:class=>"modal fade", :id=>"Hilfe", 'tabindex'=>"-1", :role=>"dialog", 'aria-labelledby'=>"Hilfe", 'aria-hidden'=>"true"}
+  .modal-dialog
+    .modal-content    
+      .modal-header
+        %button{:type=>"button", :class=>"close", 'data-dismiss'=>"modal", 'aria-label'=>"Close"}
+          %span{'aria-hidden'=>"true"}
+            &times;
+        %h1{:class=>"modal-title"}
+          =t :help
+      
+      .modal-body
+        = render 'devise/shared/links_complete'
+        
+        
+      .modal-footer
+        %div{:class=>"col-xs-12 padded"}
+          %button{:type=>"button", :class=>"btn btn-primary", 'data-dismiss'=>"modal", 'aria-label'=>"Close"}
+            %span{'aria-hidden'=>"true"}
+            %i{:class=>"fa fa-close"}
+            = t :close
+            
