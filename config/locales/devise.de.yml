@@ -3,6 +3,7 @@
 de:
   password: "Kennwort"
   password_confirmation: "Kennwortverfizierung"
+  new_password: "Neues Kennwort"
   sign_up: "Registrierung"
   please_register: "Registrieren Sie sich für ein Benutzerkonto"
   
@@ -18,7 +19,7 @@ de:
       invalid: "Ungültige Anmeldedaten."
       invalid_token: "Der Anmelde-Token ist ungültig."
       locked: "Dein Account ist gesperrt."
-      not_found_in_database: "E-Mail-Adresse oder Passwort ungültig."
+      not_found_in_database: "E-Mail-Adresse oder Kennwort ungültig."
       timeout: "Deine Sitzung ist abgelaufen, bitte melde Dich erneut an."
       unauthenticated: "Du musst Dich anmelden oder registrieren, bevor Du fortfahren kannst."
       unconfirmed: "Du musst Deinen Account bestätigen, bevor Du fortfahren kannst."
@@ -26,18 +27,19 @@ de:
       confirmation_instructions:
         subject: "Anleitung zur Bestätigung Deines Accounts"
       reset_password_instructions:
-        subject: "Anleitung um Dein Passwort zurückzusetzen"
+        subject: "Anleitung um Dein Kennwort zurückzusetzen"
       unlock_instructions:
         subject: "Anleitung um Deinen Account freizuschalten"
     omniauth_callbacks:
       failure: "Du konntest nicht Deinem %{kind}-Account angemeldet werden, weil '%{reason}'."
       success: "Du hast Dich erfolgreich mit Deinem %{kind}-Account angemeldet."
     passwords:
-      no_token: "Du kannst diese Seite nur von dem Link aus einer E-Mail zum Passwort-Zurücksetzen aufrufen. Wenn du einen solchen Link aufgerufen hast stelle bitte sicher, dass du die vollständige Adresse aufrufst."
-      send_instructions: "Du erhältst in wenigen Minuten eine E-Mail mit der Anleitung, wie Du Dein Passwort zurücksetzen kannst."
-      send_paranoid_instructions: "Falls Deine E-Mail-Adresse in unserer Datenbank existiert erhältst Du in wenigen Minuten eine E-Mail mit der Anleitung, wie Du Dein Passwort zurücksetzen können."
-      updated: "Dein Passwort wurde geändert. Du bist jetzt angemeldet."
-      updated_not_active: "Dein Passwort wurde geändert."
+      no_token: "Du kannst diese Seite nur von dem Link aus einer E-Mail zum Kennwort-Zurücksetzen aufrufen. Wenn du einen solchen Link aufgerufen hast stelle bitte sicher, dass du die vollständige Adresse aufrufst."
+      send_instructions: "Du erhältst in wenigen Minuten eine E-Mail mit der Anleitung, wie Du Dein Kennwort zurücksetzen kannst."
+      send_paranoid_instructions: "Falls Deine E-Mail-Adresse in unserer Datenbank existiert erhältst Du in wenigen Minuten eine E-Mail mit der Anleitung, wie Du Dein Kennwort zurücksetzen können."
+      updated: "Dein Kennwort wurde geändert. Du bist jetzt angemeldet."
+      updated_not_active: "Dein Kennwort wurde geändert."
+      
     registrations:
       destroyed: "Dein Account wurde gelöscht."
       signed_up: "Du hast dich erfolgreich registriert."

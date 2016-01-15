@@ -1,0 +1,35 @@
+
+
+= devise_error_messages!
+.page-header
+  %h2
+    = t "Change your password"
+      
+%section{:class => "col-sm-6"}
+  = form_for(resource, url: password_path(resource), html: { method: :put }) do |f|
+    = f.hidden_field :reset_password_token
+    
+    .form-group
+      = f.label :password, t(:new_password)
+      - if @minimum_password_length
+        %em 
+          = @minimum_password_length 
+          = t :characters_minimum
+      .row
+        .col-xs-8
+          = f.password_field :password, autofocus: true, placeholder: t(:new_password), class: "form-control"
+    
+    .form-group
+      = f.label :password_confirmation, t(:password_confirmation)
+      .row
+        .col-xs-8
+          = f.password_field :password_confirmation, placeholder: t(:password_confirmation), class: "form-control"
+      
+    .row
+      %div{:class=>"col-xs-8 padded"}      
+        %button{:id => t(:sign_up), :type => "submit", :class=>"btn btn-primary"}
+          %i{:class=>"fa fa-envelope"}
+            = t(:change_my_password)
+  
+%section{:class => "col-sm-4 col-sm-offset-right-2"}
+  = render "devise/shared/links"
