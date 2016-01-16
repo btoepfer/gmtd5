@@ -31,7 +31,7 @@
             .navbar-right
               %ul{:class=>"nav navbar-nav"}
                 %li
-                  = link_to "Account", "#"
+                  = link_to "Account", edit_registration_path(:user), method: :get
                 %li
                   = link_to "Log out", destroy_user_session_path, method: :delete
           - else
@@ -45,7 +45,7 @@
             = yield
             
     = render 'layouts/footer'
-    = render 'layouts/impressum'
+    = render 'layouts/terms'
     = render 'layouts/help'
   
     //Am Ende, damit diese Box den Inhalt ueberlagert.
