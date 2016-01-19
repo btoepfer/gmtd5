@@ -21,8 +21,11 @@ class ApplicationController < ActionController::Base
   end
   
   def extract_locale_from_user
-    if user_signed_in?
+    if user_signed_in? then
       current_user.language
+    else
+      #Ohne Anmeldung ermitteln wir die Sprache aus den Browsereinstellungen
+      request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
     end
   end
   
