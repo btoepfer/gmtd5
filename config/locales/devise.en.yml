@@ -6,6 +6,14 @@ en:
   new_password: "New password"
   sign_up: "Sign up"
   please_register: "Please sign up"
+  current_password: "Current password"
+  please_enter_your_current_password: "Please enter your current password"
+  cancel_my_account: "Cancel my account"
+  update: "Update"
+  edit_account: "Edit Account"
+  username: "Username"
+  preferred_language: "Preferred language"
+  fields_are_required: "* fields are required"
   
   devise:
     confirmations:

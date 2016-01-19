@@ -3,52 +3,63 @@
   %h2
     = t :edit_account 
       
-= form_for(:user, url: registration_path(:user), , html: { method: :put }) do |f|
-  .form-group
-    = f.label :current_password, t(:current_password)
-      .small
-        =t :please_enter_your_current_password
-    .row
-      .col-xs-8
-        = f.password_field :current_password, autofocus: true, placeholder: t(:current_password), class: "form-control"
-        
-  .form-group
-    = f.label :email, t(:email)
-    .row
-      .col-xs-8
-        = f.email_field :email,  placeholder: t(:email), class: "form-control"
-        
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation? 
-    %p 
-      Currently waiting confirmation for: 
-      = resource.unconfirmed_email 
+= form_for(:user, url: registration_path(:user), html: { method: :put }) do |f|
+  %section{:class => "col-sm-6"}
   
-  .form-group
-    = f.label :password, t(:password)
-    .row
-      .col-xs-8
-        = f.password_field :password, autocomplete: "off", placeholder: t(:password), class: "form-control"
-        
-  .form-group
-    = f.label :password_confirmation, t(:password_confirmation)
-    .row
-      .col-xs-8
-        = f.password_field :password_confirmation, autocomplete: "off", placeholder: t(:password_confirmation), class: "form-control"
-        
-  .row
-    %div{:class=>"col-xs-8 padded"}      
-      %button{:id => t(:sign_up), :type => "submit", :class=>"btn btn-primary"}
-        %i{:class=>"fa fa-user"}
-          = t(:update)
+    .form-group
+      = f.label :current_password, t(:current_password)
+      .row
+        .col-xs-8
+          = f.password_field :current_password, autocomplete: "off", autofocus: true, placeholder: t(:current_password), class: "form-control"
       
+    .form-group
+      = f.label :username, t(:username)
+      .row
+        .col-xs-8
+          = f.text_field :username,  placeholder: t(:username), class: "form-control"
+            
+    .form-group
+      = f.label :email, t(:email)
+      .row
+        .col-xs-8
+          = f.email_field :email,  placeholder: t(:email), class: "form-control"
+        
+      - if devise_mapping.confirmable? && resource.pending_reconfirmation? 
+        %p 
+          Currently waiting confirmation for: 
+          = resource.unconfirmed_email 
+  
+    .form-group
+      = f.label :language, t(:preferred_language)
+      .row
+        .col-xs-8
+          = f.select :language, {englisch: "en", german: "de"}, {}, {class: "form-control"}
+          
+    .form-group
+      = f.label :password, t(:password)
+      .row
+        .col-xs-8
+          = f.password_field :password, autocomplete: "off", placeholder: t(:password), class: "form-control"
+      
+    .form-group
+      = f.label :password_confirmation, t(:password_confirmation)
+      .row
+        .col-xs-8
+          = f.password_field :password_confirmation, autocomplete: "off", placeholder: t(:password_confirmation), class: "form-control"
+      
+    .row
+      %div{:class=>"col-xs-8 padded"}      
+        %button{:id => "update", :type => "submit", :class=>"btn btn-primary"}
+          %i{:class=>"fa fa-user"}
+            = t(:update)
+            
+   
+            
 %h3 
   = t :cancel_my_account
  
   %p
     Unhappy? 
     = button_to t(:cancel_my_account), registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete 
-
-  = link_to t(:back), root_path   
     
-%section{:class => "col-sm-6"}
-  = render "devise/registrations/sign_up"
+  = link_to t(:back), root_path   

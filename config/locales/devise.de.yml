@@ -6,6 +6,14 @@ de:
   new_password: "Neues Kennwort"
   sign_up: "Registrierung"
   please_register: "Registrieren Sie sich für ein Benutzerkonto"
+  current_password: "Aktuelles Kennwort"
+  please_enter_your_current_password: "Bitte geben Sie Ihr aktuelles Kennwort ein"
+  cancel_my_account: "Mein Konto löschen"
+  update: "Ändern"
+  edit_account: "Benutzerkonto ändern"
+  username: "Benutzername"
+  preferred_language: "Bevorzugte Sprache"
+  fields_are_required: "*-Felder sind erforderlich"
   
   devise:
     confirmations:
