@@ -1,5 +1,9 @@
 
 de:
+  date:
+    formats:
+      default: "%d. %b. %Y"
+      
   hello: "Hello world"
   terms: "Impressum"
   email: "E-Mail"

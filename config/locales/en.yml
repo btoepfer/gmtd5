@@ -21,6 +21,10 @@
 
 
 en:
+  date:
+    formats:
+      default: "%d. %b. %Y"
+      
   hello: "Hello world"
   terms: "Legal notice"
   email: "Email"
