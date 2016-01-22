@@ -2,7 +2,7 @@
 de:
   date:
     formats:
-      default: "%d. %b. %Y"
+      default: "%d.%m.%Y"
       
   hello: "Hello world"
   terms: "Impressum"

@@ -23,7 +23,7 @@
 en:
   date:
     formats:
-      default: "%d. %b. %Y"
+      default: "%d.%bm.%Y"
       
   hello: "Hello world"
   terms: "Legal notice"
