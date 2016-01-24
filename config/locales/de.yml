@@ -1,8 +1,14 @@
 
 de:
+  date:
+    formats:
+      default: "%d.%m.%Y"
+      
   hello: "Hello world"
   terms: "Impressum"
   email: "E-Mail"
   "web based project and task management": "Webbasiertes Projekt- und Aufgabenmanagement"
   close: "Schließen"
+  update: "Ändern"
+  save: "Speichern"
 

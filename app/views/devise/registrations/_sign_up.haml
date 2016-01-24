@@ -5,36 +5,36 @@
       .row
         = f.label :username, t(:username)
       .row
-        = f.text_field :username,  autofocus: true, placeholder: t(:username), class: "form-control"
+        = f.text_field :username,  autofocus: true, placeholder: t(:username), class: "form-control", id: "signup_user_username"
         
     .form-group
       .row
         = f.label :email, t(:email)+" *"
       .row
-        = f.email_field :email, placeholder: t(:email), class: "form-control"
+        = f.email_field :email, placeholder: t(:email), class: "form-control", id: "signup_user_email"
         
     .form-group
       .row
         = f.label :password, t(:password)+" *"
       .row
-        = f.password_field :password, autocomplete: "off", placeholder: t(:password), class: "form-control"
+        = f.password_field :password, autocomplete: "off", placeholder: t(:password), class: "form-control", id: "signup_user_password"
         
     .form-group
       .row
         = f.label :password_confirmation, t(:password_confirmation)+" *"
       .row
-        = f.password_field :password_confirmation, autocomplete: "off", placeholder: t(:password_confirmation), class: "form-control"
+        = f.password_field :password_confirmation, autocomplete: "off", placeholder: t(:password_confirmation), class: "form-control", id: "signup_user_password_confirmation"
         
     .form-group
       .row
         = f.label :language, t(:preferred_language)
       .row
-        = f.select :language, {englisch: "en", german: "de"}, {}, {class: "form-control"}
+        = f.select :language, {englisch: "en", german: "de"}, {}, {class: "form-control", id: "signup_user_language"}
       .row
         .small{class: "pull-right"}
           = t :fields_are_required
     .row
-      %button{:id => t(:sign_up), :type => "submit", :class=>"btn btn-primary"}
+      %button{:id => "sign_up", :type => "submit", :class=>"btn btn-primary"}
         %i{:class=>"fa fa-user-plus"}
           = t(:sign_up)
       

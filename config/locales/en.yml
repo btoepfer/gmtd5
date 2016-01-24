@@ -21,9 +21,15 @@
 
 
 en:
+  date:
+    formats:
+      default: "%d.%bm.%Y"
+      
   hello: "Hello world"
   terms: "Legal notice"
   email: "Email"
-  sign_up: "Sign up"
   "web based project and task management": "web based project and task management"
-  please_register: "Register for an account"
+
+  update: "Update"
+  save: "Save"
+  close: "Close"
