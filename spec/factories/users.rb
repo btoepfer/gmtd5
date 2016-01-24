@@ -1,4 +1,12 @@
 FactoryGirl.define do
+  factory :user do
+    username "Test User"
+    email "test@example.com"
+    password "please123"
+    confirmed_at Time.now
+    language "en"
+  end
+  
   factory :user_en, class: User do
     username "User EN"
     email "user_en@example.com"
