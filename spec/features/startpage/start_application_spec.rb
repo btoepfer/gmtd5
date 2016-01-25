@@ -5,10 +5,10 @@ require 'rails_helper'
 #   I want to start the application
 #   So I can use it
 RSpec.feature "Start Application" do
-  let!(:user_en) {FactoryGirl.create(:user_en)}
+  let!(:user) {FactoryGirl.create(:user)}
   
   before do
-    login_as(user_en)
+    login_as(user)
   end
   
   
