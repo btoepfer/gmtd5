@@ -5,8 +5,8 @@ require 'rails_helper'
 #   So I can use the application
 RSpec.feature "User Login" do
   before do
-    user_en = FactoryGirl.create(:user, :username => "user_en", :email=> "user_en@example.com", :language  => "en")
-    user_de = FactoryGirl.create(:user, :username => "user_de", :email=> "user_de@example.com", :language  => "de")    
+    user_en = FactoryGirl.create(:user, :id=>1, :username => "user_en", :email=> "user_en@example.com", :language  => "en")
+    user_de = FactoryGirl.create(:user, :id=>2, :username => "user_de", :email=> "user_de@example.com", :language  => "de")    
     visit root_path
   end
   
