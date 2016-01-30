@@ -4,9 +4,21 @@
     = form_for(:article, url: articles_path, 
               :html => {:class=>"form-inline", :role => "search", :method => :get}) do |f|
       .form-group
-        = f.text_field :keywords,  autofocus: true, placeholder: t(:keywords), class: "form-control",  type: "search", size:80, name:"s"
+        = f.text_field :keywords,  autofocus: true, placeholder: t(:keywords), class: "form-control",  type: "search", size:80, name:"s", value: @keywords
         %button{:id => "search", :type => "submit", :class=>"btn btn-primary"}
           %i{:class=>"fa fa-search"}
             = t(:search)
         
- 
+
+%section(class="search-results")
+  %header
+    %h3
+      = t :results
+  %ol(class="list-group")
+    - @articles.each do |article|
+      %li(class="list-group-item")
+        %h4
+          = article.title
+        %h5
+          =  article.content
+          

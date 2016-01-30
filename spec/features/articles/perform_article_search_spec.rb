@@ -8,6 +8,7 @@ require 'rails_helper'
 RSpec.feature "Perform Article Search" do
 
   let!(:user) {FactoryGirl.create(:user, )}
+  let!(:article) {FactoryGirl.create(:article,title: "NLS Parameter", content: "export NLS_LANG=AMERICAN_AMERICA.WE8ISO8859P1" )}
   
   before do
     login_as(user)
@@ -19,7 +20,7 @@ RSpec.feature "Perform Article Search" do
   #   Then I see a the result page
   scenario "search for keyword without wildcards" do
     visit articles_path
-    fill_in "article_keywords", with: "NLS"
+    fill_in "article_keywords", with: "NLS Parameter"
     click_button "search"
     expect(page).to have_content "NLS Parameter"
   end
