@@ -1,0 +1,23 @@
+
+.navbar-right
+  %ul{:class=>"nav navbar-nav"}
+    %li
+      %a{:href=>"#"}
+        %i{:class=>"fa fa-book"}
+          = t :projects
+    %li
+      %a{:href=>"#"}
+        %i{:class=>"fa fa-check"}
+          = t :tasks
+    %li
+      %a{:href=>articles_path}
+        %i{:class=>"fa fa-file-text"}
+          = t :articles
+    %li
+      &nbsp;&nbsp;
+    %li
+      %a{:href=>edit_user_registration_path}
+        %i{:class=>"fa fa-user"}
+          = t :account
+    %li
+      = link_to t(:log_out), destroy_user_session_path, method: :delete

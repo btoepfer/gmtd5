@@ -1,7 +1,7 @@
 #footer
   .container
     .row
-      %div{:class=>"col-xs-5 text-left"}
+      %div{:class=>"col-xs-6 text-left"}
         %span
           %a{:href=>"#", 'data-toggle'=>"modal", 'data-target'=>"#AboutUs"}
             %i{:class=>"fa fa-info-circle"}
@@ -15,10 +15,7 @@
             %i{:class=>"fa fa-question-circle"}
               = t :help
             
-      %div{:class=>"col-xs-2 text-center"}
-        %i(class="fa fa-clock-o")
-        =  l Date.today
-      
-      %div{:class=>"col-xs-5 text-right"}
+
+      %div{:class=>"col-xs-6 text-right"}
         %i{:class=>"fa fa-copyright"}
           2016 - Bernd C. Toepfer

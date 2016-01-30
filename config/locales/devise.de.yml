@@ -5,6 +5,7 @@ de:
   password_confirmation: "Kennwortverfizierung"
   new_password: "Neues Kennwort"
   sign_up: "Registrierung"
+  log_out: "Abmelden"
   please_register: "Registrieren Sie sich für ein Benutzerkonto"
   current_password: "Aktuelles Kennwort"
   please_enter_your_current_password: "Bitte geben Sie Ihr aktuelles Kennwort ein"
