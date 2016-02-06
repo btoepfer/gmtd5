@@ -1,0 +1,14 @@
+- if @note then
+  .page-header
+    %h1(class="h2")
+      = @note.title if @note
+      %br
+      %small
+        = l @note.created_at 
+      
+  %section
+    %div
+      = @note.content
+- else
+  %h1
+    = t :note_not_found

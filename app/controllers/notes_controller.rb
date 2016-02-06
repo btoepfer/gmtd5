@@ -21,4 +21,12 @@ class NotesController < ApplicationController
       @notes = []
     end
   end
+  
+  def show
+    notes = []
+    # Auch wenn wir eine konkrete Notiz anzeigen, müssen wir prüfen, ob diese
+    # dem angemeldeten User gehört.
+    notes = Note.where("id = ? and user_id = ?", params[:id].to_i, current_user.id)
+    @note = notes[0]
+  end
 end

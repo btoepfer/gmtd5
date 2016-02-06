@@ -28,7 +28,6 @@ en:
   hello: "Hello world"
   projects: "Projects"
   tasks: "Tasks"
-  notes: "Notes"
   terms: "Legal notice"
   email: "Email"
   "web based project and task management": "web based project and task management"
@@ -44,3 +43,7 @@ en:
   search_for: "Search for title, keywords or tags (use '*' as wildcard)"
   search: "Search"
   results: "Search Results"
+
+  # Notes
+  notes: "Notes"
+  note_not_found: "Note not found"

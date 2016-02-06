@@ -22,4 +22,7 @@ de:
   search_for: "Suche nach Titel, Schlagworten oder Tags ('*' als Joker)"
   search: "Suchen"
   results: "Suchergebnis"
+  
+  notes:
+    note_not_found: Notiz nicht vorhanden
 
