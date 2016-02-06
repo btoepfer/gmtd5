@@ -54,6 +54,20 @@ RSpec.feature "Show Note Details" do
     expect(page).to have_content "Geänderte Notiz"
   end
   
+  # Scenario: User wants to create a new note
+  #   Given I am a registered user
+  #   When I click on link "new note" 
+  #   Then I see a form for creating an existing note
+  scenario "create note" do
+    visit notes_path
+    click_on I18n.t("create_note")
+    expect(page).to have_field :note_title
+    fill_in :note_title, with: "Neue Notiz"
+    fill_in :note_content, with: "The quick brown fox jumps over the lazy dog."
+    click_on I18n.t("create")
+    expect(page).to have_content "Neue Notiz"
+  end
+  
 end
 
 

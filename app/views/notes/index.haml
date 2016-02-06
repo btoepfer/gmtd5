@@ -8,6 +8,9 @@
           %button{:id => "search", :type => "submit", :class=>"btn btn-primary"}
             %i{:class=>"fa fa-search"}
               = t(:search)
+    .row
+      %div{:class=>"col-xs-12 text-right"}
+        = link_to t(:create_note), new_note_path(@note)
         
 
 %section(class="search-results")

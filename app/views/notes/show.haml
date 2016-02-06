@@ -7,6 +7,8 @@
       %div{:class=>"col-xs-6 text-left"}
         = l @note.created_at 
       %div{:class=>"col-xs-6 text-right"}
+        = link_to t(:create_note), new_note_path(@note)
+        &nbsp;|&nbsp;
         = link_to t(:edit_note), edit_note_path(@note.id)
       
   %section

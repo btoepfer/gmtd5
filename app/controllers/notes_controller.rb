@@ -33,6 +33,7 @@ class NotesController < ApplicationController
     @note = find_note(params[:id])
   end
   
+  # Update durchführen
   def update
     @note = find_note(params[:id])
     if @note.update(note_params)
@@ -41,6 +42,23 @@ class NotesController < ApplicationController
     end 
   end
   
+  # Neue Notiz anlegen
+  def new
+    @note = Note.new
+    @note.user_id = current_user.id
+  end
+  
+  # Insert durchführen
+  def create
+    @note = Note.new(note_params)
+    @note.user_id = current_user.id
+    if @note.save(note_params)
+      flash[:notice] = "Note '#{@note.title}' has been successfully created."
+      redirect_to @note
+    end 
+  end
+  
+  # Private Methoden
   private
   def find_note(id)
     # Auch wenn wir eine konkrete Notiz anzeigen, müssen wir prüfen, ob diese
