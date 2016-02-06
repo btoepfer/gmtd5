@@ -23,13 +23,31 @@
 en:
   date:
     formats:
-      default: "%d.%bm.%Y"
+      default: "%d.%m.%Y"
       
   hello: "Hello world"
+  projects: "Projects"
+  tasks: "Tasks"
   terms: "Legal notice"
   email: "Email"
   "web based project and task management": "web based project and task management"
 
+  help: "Help"
+  about_us: "About us"
   update: "Update"
   save: "Save"
   close: "Close"
+  account: "Account"
+  
+  keywords: "Keywords"
+  search_for: "Search for title, keywords or tags (use '*' as wildcard)"
+  search: "Search"
+  results: "Search Results"
+
+  # Notes
+  notes: "Notes"
+  note_not_found: "Note not found"
+  edit_note: "Edit note"
+  create_note: "Create note"
+  title: "Title"
+  content: "Content"

@@ -1,5 +1,5 @@
 class StartpageController < ApplicationController
-  def index
+  def start
     logger.debug "* Locale set to '#{I18n.locale}'"
   end
 end

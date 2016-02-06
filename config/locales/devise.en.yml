@@ -5,6 +5,7 @@ en:
   password_confirmation: "Password confirmation"
   new_password: "New password"
   sign_up: "Sign up"
+  log_out: "Log out"
   please_register: "Register for an account"
   current_password: "Current password"
   please_enter_your_current_password: "Please enter your current password"

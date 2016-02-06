@@ -1,4 +1,8 @@
 require 'rails_helper'
+<<<<<<< HEAD:spec/features/startpage/navigation_spec.rb
+=======
+
+>>>>>>> notes:spec/features/startpage/navigation_spec.rb
 # Feature: Navigation links
 #   As a visitor
 #   I want to see navigation links

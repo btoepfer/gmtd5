@@ -5,10 +5,29 @@ de:
       default: "%d.%m.%Y"
       
   hello: "Hello world"
+  projects: "Projekte"
+  tasks: "Aufgaben"
+  notes: "Notizen"
   terms: "Impressum"
   email: "E-Mail"
+  help: "Hilfe"
+  about_us: "Über uns"
   "web based project and task management": "Webbasiertes Projekt- und Aufgabenmanagement"
   close: "Schließen"
   update: "Ändern"
   save: "Speichern"
+  account: "Mein Konto"
+  
+  keywords: "Suchbegriff(e)"
+  search_for: "Suche nach Titel, Schlagworten oder Tags ('*' als Joker)"
+  search: "Suchen"
+  results: "Suchergebnis"
+  
+  # Notizen
+  notes: "Notizen"
+  note_not_found: "Notiz nicht vorhanden"
+  edit_note: "Notiz ändern"
+  create_note: "Neue Notiz"
+  title: "Titel"
+  content: "Inhalt"
 
