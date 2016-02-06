@@ -1,5 +1,6 @@
 class NotesController < ApplicationController
 
+  # Index bzw. Suchmaske
   def index
     where = []
     like_or_equal = "="
@@ -22,11 +23,32 @@ class NotesController < ApplicationController
     end
   end
   
+  # Detailanzeige
   def show
-    notes = []
+    @note = find_note(params[:id])
+  end
+  
+  # Notiz bearbeiten
+  def edit
+    @note = find_note(params[:id])
+  end
+  
+  def update
+    @note = find_note(params[:id])
+    if @note.update(note_params)
+      flash[:notice] = "Note '#{@note.title}' has been successfully updated."
+      redirect_to @note
+    end 
+  end
+  
+  private
+  def find_note(id)
     # Auch wenn wir eine konkrete Notiz anzeigen, müssen wir prüfen, ob diese
     # dem angemeldeten User gehört.
-    notes = Note.where("id = ? and user_id = ?", params[:id].to_i, current_user.id)
-    @note = notes[0]
+    note = Note.where("id = ? and user_id = ?", id, current_user.id).take
+  end
+  
+  def note_params
+    params.require(:note).permit(:title, :content)
   end
 end

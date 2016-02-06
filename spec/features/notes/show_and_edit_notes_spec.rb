@@ -26,7 +26,6 @@ RSpec.feature "Show Note Details" do
     expect(page).to have_content "Aut temporibus quod maxime"
     expect(page).to have_content "Harum iusto quidem ut a. Totam accusamus neque voluptatem architecto."
     click_on('Aut temporibus quod maxime')
-    expect(page).to have_xpath('//h1/small')
     expect(page).to have_content "Aut temporibus quod maxime"
   end
   
@@ -34,10 +33,25 @@ RSpec.feature "Show Note Details" do
   #   Given I am a registered user
   #   When I try to open the detail page for a notes of another user 
   #   Then I do not see the notes
-  scenario "search for note of another user to show details" do
+  scenario "show note of another user" do
     visit note_path(id: 101)
     expect(page).to have_content I18n.t("note_not_found")
     expect(page).not_to have_content "Veritatis itaque qui quae ut"
+  end
+  
+  # Scenario: User wants to edit note
+  #   Given I am a registered user
+  #   When I click on link "edit note" 
+  #   Then I see a form for editing an existing note
+  scenario "edit note" do
+    visit note_path(id: 100)
+    expect(page).to have_content "Aut temporibus quod maxime"
+    click_on I18n.t("edit_note")
+    expect(page).to have_field :note_title
+    fill_in :note_title, with: "Geänderte Notiz"
+    fill_in :note_content, with: "The quick brown fox jumps over the lazy dog."
+    click_on I18n.t("update")
+    expect(page).to have_content "Geänderte Notiz"
   end
   
 end

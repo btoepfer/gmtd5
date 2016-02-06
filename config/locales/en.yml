@@ -47,3 +47,6 @@ en:
   # Notes
   notes: "Notes"
   note_not_found: "Note not found"
+  edit_note: "Edit note"
+  title: "Title"
+  content: "Content"

@@ -1,5 +1,5 @@
 /Rails flash messages styled for Bootstrap 3.0
-%aside{:id=>"message", :class=>"col-sm-6 col-sm-offset-3 text-center"}
+%aside{:id=>"message", :class=>"col-md-4 col-md-offset-8 col-sm-6 col-sm-offset-6 text-center"}
   -flash.each do |name, msg| 
     -if msg.is_a?(String)
       %div{:class=>"alert alert-#{name == "notice" ? "success" : "danger"}"}

@@ -2,9 +2,12 @@
   .page-header
     %h1(class="h2")
       = @note.title if @note
-      %br
-      %small
+    
+    .row
+      %div{:class=>"col-xs-6 text-left"}
         = l @note.created_at 
+      %div{:class=>"col-xs-6 text-right"}
+        = link_to t(:edit_note), edit_note_path(@note.id)
       
   %section
     %div

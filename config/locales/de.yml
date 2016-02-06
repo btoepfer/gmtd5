@@ -23,6 +23,10 @@ de:
   search: "Suchen"
   results: "Suchergebnis"
   
-  notes:
-    note_not_found: Notiz nicht vorhanden
+  # Notizen
+  notes: "Notizen"
+  note_not_found: "Notiz nicht vorhanden"
+  edit_note: "Notiz ändern"
+  title: "Titel"
+  content: "Inhalt"
 

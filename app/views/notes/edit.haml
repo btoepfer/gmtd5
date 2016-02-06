@@ -1,0 +1,20 @@
+.page-header
+  %h2
+    = t :edit_note 
+      
+= form_for(:note, url: note_path, html: { method: :put }) do |f|
+  %section{:class => "col-sm-8 col-md-108"}
+  
+    .form-group
+      = f.label :title, t(:title)
+      = f.text_field :title, autocomplete: "off", placeholder: t(:title), class: "form-control", size:80
+      
+    .form-group
+      = f.label :content, t(:content)
+      = f.text_area :content,  placeholder: t(:content), class: "form-control", rows:20, size:80
+        
+    .row
+      %div{:class=>"col-xs-8 padded"}      
+        %button{:id => "update", :type => "submit", :class=>"btn btn-primary"}
+          %i{:class=>"fa fa-file-text"}
+            = t(:update)
