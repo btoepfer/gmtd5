@@ -1,4 +1,4 @@
-class ArticlesController < ApplicationController
+class NotesController < ApplicationController
 
   def index
     where = []
@@ -15,10 +15,10 @@ class ArticlesController < ApplicationController
       # upcase, damit Groß-/Kleinschreibung ignoriert wird, "*" wird durch "%" ersetzt
       where_clause = ["user_id = ? and (upper(title) #{like_or_equal} ? or upper(content) like ?)", current_user.id, title_search, content_search]
       
-      @articles = Article.where(where_clause)
+      @notes = Note.where(where_clause)
       
     else
-      @articles = []
+      @notes = []
     end
   end
 end
