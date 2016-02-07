@@ -3,6 +3,10 @@ de:
   date:
     formats:
       default: "%d.%m.%Y"
+
+  time:
+    formats:
+      default: "%d.%m.%Y %hh:%mi"
       
   hello: "Hello world"
   projects: "Projekte"
@@ -16,6 +20,7 @@ de:
   close: "Schließen"
   update: "Ändern"
   save: "Speichern"
+  create: "Speichern"
   account: "Mein Konto"
   
   keywords: "Suchbegriff(e)"
