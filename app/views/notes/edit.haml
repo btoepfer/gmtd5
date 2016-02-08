@@ -10,7 +10,7 @@
       
     .form-group
       = f.label :content, t(:content)
-      = f.hidden_field :content
+      = hidden_field_tag "note[content]", "#{find_and_preserve(@note.content)}", id:"note_content"
       %trix-editor{:input=>"note_content", :placeholder=>t(:content), :class => "trix-content"}
         
     .row

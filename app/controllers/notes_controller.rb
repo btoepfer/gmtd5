@@ -30,11 +30,13 @@ class NotesController < ApplicationController
   
   # Notiz bearbeiten
   def edit
+    #byebug
     @note = find_note(params[:id])
   end
   
   # Update durchführen
   def update
+    #byebug
     @note = find_note(params[:id])
     
     if @note.update(note_params)
