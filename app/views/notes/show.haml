@@ -12,8 +12,9 @@
         = link_to t(:edit_note), edit_note_path(@note.id)
       
   %section
-    %div
-      = @note.content
+    .trix-content
+      = find_and_preserve @note.content.html_safe
+      
 - else
   %h1
     = t :note_not_found
