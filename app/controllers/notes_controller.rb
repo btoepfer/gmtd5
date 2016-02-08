@@ -36,6 +36,7 @@ class NotesController < ApplicationController
   # Update durchführen
   def update
     @note = find_note(params[:id])
+    
     if @note.update(note_params)
       flash[:notice] = "Note '#{@note.title}' has been successfully updated."
       redirect_to @note

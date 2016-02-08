@@ -2,9 +2,8 @@
   %h2
     = t :edit_note 
       
-= form_for(:note, url: note_path, html: { method: :put }) do |f|
-  %section{:class => "col-sm-8 col-md-108"}
-  
+%section{:class => "col-sm-8 col-md-8"}
+  = form_for(:note, url: note_path, html: { method: :put }) do |f|
     .form-group
       = f.label :title, t(:title)
       = f.text_field :title, autocomplete: "off", placeholder: t(:title), class: "form-control", size:80
