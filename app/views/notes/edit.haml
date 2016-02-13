@@ -1,8 +1,7 @@
-.page-header
-  %h2
-    = t :edit_note 
+%h3
+  = t :edit_note 
       
-%section{:class => "col-sm-8 col-md-8"}
+%section{:class => "col-sm-12 col-md-12"}
   = form_for(:note, url: note_path, html: { method: :put }) do |f|
     .form-group
       = f.label :title, t(:title)
