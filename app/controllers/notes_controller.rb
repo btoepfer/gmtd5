@@ -8,9 +8,9 @@ class NotesController < ApplicationController
       @keywords = params[:s]
       
       # Enthält der Suchbegriff ein "*", dann suchen wir mit "like"
-      like_or_equal = "like" if @keywords.include? '*'
+      like_or_equal = "like" # if @keywords.include? '*'
       
-      title_search = @keywords.upcase.gsub('*','%')
+      title_search = "%"+@keywords.upcase.gsub('*','%')+"%"
       content_search = "%"+title_search+"%"
       
       # upcase, damit Groß-/Kleinschreibung ignoriert wird, "*" wird durch "%" ersetzt
@@ -30,12 +30,15 @@ class NotesController < ApplicationController
   
   # Notiz bearbeiten
   def edit
+    #byebug
     @note = find_note(params[:id])
   end
   
   # Update durchführen
   def update
+    #byebug
     @note = find_note(params[:id])
+    
     if @note.update(note_params)
       flash[:notice] = "Note '#{@note.title}' has been successfully updated."
       redirect_to @note

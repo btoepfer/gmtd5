@@ -6,7 +6,7 @@ de:
 
   time:
     formats:
-      default: "%d.%m.%Y %hh:%mi"
+      default: "%d.%m.%Y %H:%M"
       
   hello: "Hello world"
   projects: "Projekte"

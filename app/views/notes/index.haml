@@ -23,5 +23,5 @@
         %h4
           = link_to note.title, note_path(note.id)
         %h5
-          =  note.content
+          =  strip_tags note.content
           

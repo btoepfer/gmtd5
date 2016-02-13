@@ -1,9 +1,8 @@
-.page-header
-  %h2
-    = t :create_note 
-      
-= form_for(:note, url: notes_path, html: { method: :post }) do |f|
-  %section{:class => "col-sm-8 col-md-108"}
+%h3
+  = t :create_note 
+
+%section{:class => "col-sm-12 col-md-12"}
+  = form_for(:note, url: notes_path, html: { method: :post }) do |f|
   
     .form-group
       = f.label :title, t(:title)
@@ -11,7 +10,8 @@
       
     .form-group
       = f.label :content, t(:content)
-      = f.text_area :content,  placeholder: t(:content), class: "form-control", rows:20, size:80
+      = f.hidden_field :content
+      %trix-editor{:input=>"note_content", :placeholder=>t(:content), :class => "trix-content"}
         
     .row
       %div{:class=>"col-xs-8 padded"}      
