@@ -1,8 +1,0 @@
-# ENVIRONMENT VARIABLES
-DOMAIN: "bctoepfer.de"
-SENDER_EMAIL: "bernd@bctoepfer.de"
-MAILER_DOMAIN: "bctoepfer.de"
-SMTP_SERVER: "bctoepfer.de"
-SMTP_PORT: "587"
-SMTP_USER: "bernd@bctoepfer.de"
-SMTP_PWD: "X34bR78!"
