@@ -49,8 +49,8 @@ RSpec.feature "Show Note Details" do
     click_on I18n.t("edit_note")
     expect(page).to have_field :note_title
     fill_in :note_title, with: "Geänderte Notiz"
-    fill_in :note_content, with: "The quick brown fox jumps over the lazy dog."
-    click_on I18n.t("update")
+    #fill_in :note_content, with: "The quick brown fox jumps over the lazy dog."
+    click_on I18n.t("save")
     expect(page).to have_content "Geänderte Notiz"
   end
   
@@ -63,7 +63,7 @@ RSpec.feature "Show Note Details" do
     click_on I18n.t("create_note")
     expect(page).to have_field :note_title
     fill_in :note_title, with: "Neue Notiz"
-    fill_in :note_content, with: "The quick brown fox jumps over the lazy dog."
+    #fill_in :note_content, with: "The quick brown fox jumps over the lazy dog."
     click_on I18n.t("create")
     expect(page).to have_content "Neue Notiz"
   end

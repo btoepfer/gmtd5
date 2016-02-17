@@ -85,4 +85,6 @@ production:
   <<: *default
   database: gmtd5_production
   username: gmtd5
-  password: <%= ENV['GMTD5_DATABASE_PASSWORD'] %>
+  password: gmtd5
+  
+  #password: <%= ENV['GMTD5_DATABASE_PASSWORD'] %>

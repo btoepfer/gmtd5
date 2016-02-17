@@ -5,7 +5,7 @@ module Features
       fill_in 'signup_user_email', with: email
       fill_in 'signup_user_password', with: password
       fill_in 'signup_user_password_confirmation', :with => confirmation
-      select language, :from => 'signup_user_language'
+      # select language, :from => 'signup_user_language'
       click_button 'sign_up'
     end
 
