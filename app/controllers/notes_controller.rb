@@ -19,7 +19,7 @@ class NotesController < ApplicationController
       @notes = Note.where(where_clause).order(created_at: :desc).limit(10)
       
     else
-      @notes = []
+      @notes = Note.where("user_id = ?", current_user.id)
     end
   end
   
