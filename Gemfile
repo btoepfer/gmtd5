@@ -25,6 +25,7 @@ gem 'devise'
 gem 'haml'
 # gem 'RedCloth'
 gem 'bower-rails'
+gem 'font-awesome-sass'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
