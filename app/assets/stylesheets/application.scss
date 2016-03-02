@@ -12,6 +12,7 @@
  *
  *= require_self
  *= require 'bootstrap-sass-official'
- *= require 'fontawesome'
  *= require_tree .
  */
+@import "font-awesome-sprockets";
+@import "font-awesome";
