@@ -21,7 +21,10 @@
     - @notes.each do |note|
       %li(class="list-group-item")
         %h4
-          = link_to note.title, note_path(note.id)
+          = link_to raw(extract_result(note.title, @keywords)), note_path(note.id)
+          %br
+          %small
+            = l note.created_at
         %h5
-          =  strip_tags note.content
+          =  raw extract_result(strip_tags(note.content), @keywords, " ... ")
           
