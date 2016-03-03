@@ -5,13 +5,14 @@
   = form_for(:note, url: note_path, html: { method: :put }) do |f|
     .form-group
       = f.label :title, t(:title)
-      = f.text_field :title, autocomplete: "off", placeholder: t(:title), class: "form-control", size:80
-      
+      = f.text_field :title, autocomplete: "off", placeholder: t(:title), class: "form-control  font-bold-large", size:80
+     
+
     .form-group
       = f.label :content, t(:content)
       = hidden_field_tag "note[content]", "#{find_and_preserve(@note.content)}", id:"note_content"
       %trix-editor{:input=>"note_content", autofocus: true, :placeholder=>t(:content), :class => "trix-content"}
-        
+    
     .row
       %div{:class=>"col-xs-8 padded"}      
         %button{:id => "update", :type => "submit", :class=>"btn btn-primary"}
