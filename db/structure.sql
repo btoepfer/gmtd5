@@ -64,12 +64,54 @@ ALTER SEQUENCE notes_id_seq OWNED BY notes.id;
 
 
 --
+-- Name: notes_tags; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE notes_tags (
+    note_id integer,
+    tag_id integer
+);
+
+
+--
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE schema_migrations (
     version character varying NOT NULL
 );
+
+
+--
+-- Name: tags; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE tags (
+    id integer NOT NULL,
+    user_id integer NOT NULL,
+    name character varying(100) NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: tags_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE tags_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: tags_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE tags_id_seq OWNED BY tags.id;
 
 
 --
@@ -133,6 +175,13 @@ ALTER TABLE ONLY notes ALTER COLUMN id SET DEFAULT nextval('notes_id_seq'::regcl
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY tags ALTER COLUMN id SET DEFAULT nextval('tags_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
 
 
@@ -142,6 +191,14 @@ ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regcl
 
 ALTER TABLE ONLY notes
     ADD CONSTRAINT notes_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tags_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY tags
+    ADD CONSTRAINT tags_pkey PRIMARY KEY (id);
 
 
 --
@@ -157,6 +214,34 @@ ALTER TABLE ONLY users
 --
 
 CREATE INDEX index_notes_on_user_id ON notes USING btree (user_id);
+
+
+--
+-- Name: index_notes_tags_on_note_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_notes_tags_on_note_id ON notes_tags USING btree (note_id);
+
+
+--
+-- Name: index_notes_tags_on_tag_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_notes_tags_on_tag_id ON notes_tags USING btree (tag_id);
+
+
+--
+-- Name: index_tags_on_name; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_tags_on_name ON tags USING btree (name);
+
+
+--
+-- Name: index_tags_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_tags_on_user_id ON tags USING btree (user_id);
 
 
 --
@@ -216,11 +301,35 @@ CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (v
 
 
 --
+-- Name: fk_rails_0ded6e54ae; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY notes_tags
+    ADD CONSTRAINT fk_rails_0ded6e54ae FOREIGN KEY (tag_id) REFERENCES tags(id);
+
+
+--
 -- Name: fk_rails_7f2323ad43; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY notes
     ADD CONSTRAINT fk_rails_7f2323ad43 FOREIGN KEY (user_id) REFERENCES users(id);
+
+
+--
+-- Name: fk_rails_e689f6d0cc; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tags
+    ADD CONSTRAINT fk_rails_e689f6d0cc FOREIGN KEY (user_id) REFERENCES users(id);
+
+
+--
+-- Name: fk_rails_f94bedd5e6; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY notes_tags
+    ADD CONSTRAINT fk_rails_f94bedd5e6 FOREIGN KEY (note_id) REFERENCES notes(id);
 
 
 --
@@ -244,4 +353,6 @@ INSERT INTO schema_migrations (version) VALUES ('20160308085742');
 INSERT INTO schema_migrations (version) VALUES ('20160308085929');
 
 INSERT INTO schema_migrations (version) VALUES ('20160308093745');
+
+INSERT INTO schema_migrations (version) VALUES ('20160308144204');
 
