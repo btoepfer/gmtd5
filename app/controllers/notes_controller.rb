@@ -1,3 +1,4 @@
+
 class NotesController < ApplicationController
 
   # Index bzw. Suchmaske
@@ -30,6 +31,16 @@ class NotesController < ApplicationController
       format_text(@note.title)
       format_text(@note.content)
     end
+    # Bei der Rückgabe als HTML sollten wir diese Ersetzung in der View machen.
+    #respond_to do |format|
+     # format.html 
+    #  format.json  {
+    #    if @note then
+    #      format_text(@note.title)
+     #     format_text(@note.content)
+     #   end
+     # }
+    #end
   end
   
   # Notiz bearbeiten
@@ -44,7 +55,7 @@ class NotesController < ApplicationController
     @note = find_note(params[:id])
     
     if @note.update(note_params)
-      flash[:notice] = "Note '#{@note.title}' has been successfully updated."
+      flash[:notice] = "'#{@note.title}' #{t :updated}"
       redirect_to @note
     end 
   end
@@ -60,7 +71,7 @@ class NotesController < ApplicationController
     @note = Note.new(note_params)
     @note.user_id = current_user.id
     if @note.save(note_params)
-      flash[:notice] = "Note '#{@note.title}' has been successfully created."
+      flash[:notice] = "'#{@note.title}' #{t :created}"
       redirect_to @note
     end 
   end
@@ -89,4 +100,5 @@ class NotesController < ApplicationController
       #logger.debug("2. text: #{text}")
     end 
   end
+  
 end

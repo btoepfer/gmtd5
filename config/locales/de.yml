@@ -28,6 +28,9 @@ de:
   search: "Suchen"
   results: "Suchergebnis"
   
+  created: " wurde erfolgreich angelegt."
+  updated: " wurde erfolgreich geändert."
+  
   # Notizen
   notes: "Notizen"
   note_not_found: "Notiz nicht vorhanden"

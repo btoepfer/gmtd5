@@ -49,6 +49,9 @@ en:
   search: "Search"
   results: "Search Results"
 
+  created: " has been sucessfully created."
+  updated: " has been sucessfully updated."
+
   # Notes
   notes: "Notes"
   note_not_found: "Note not found"
