@@ -70,6 +70,23 @@ RSpec.feature "Show Note Details" do
     expect(page).to have_content "The quick brown fox jumps over the lazy dog."
   end
   
+  # Scenario: Notes shows formatted content
+  #   Given I am a registered user
+  #   When I use @@ or # in my note 
+  #   Then I see a the content formatted
+  scenario "edit note" do
+    visit note_path(id: 100)
+    click_on I18n.t("edit_note")
+    expect(page).to have_field :note_title
+    fill_in :note_title, with: "Formatierte Notiz"
+    find('#note_content').set('The quick brown #fox @jumps@ over the lazy #dog.')
+    click_on I18n.t("save")
+    expect(page).to have_content "Formatierte Notiz"
+    expect(find('.trix-content').find('code')).to have_content('jumps')
+    expect(find('.trix-content').find('mark', :text => '#fox'))
+    expect(find('.trix-content').find('mark', :text => '#dog'))
+  end
+  
 end
 
 
