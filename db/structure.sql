@@ -39,7 +39,8 @@ CREATE TABLE notes (
     title character varying(100) NOT NULL,
     content text,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    content_pur text
 );
 
 
@@ -194,10 +195,10 @@ CREATE UNIQUE INDEX index_users_on_username ON users USING btree (username);
 
 
 --
--- Name: notes_upper_content; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: notes_upper_content_pur; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
-CREATE INDEX notes_upper_content ON notes USING btree (upper(content) varchar_pattern_ops);
+CREATE INDEX notes_upper_content_pur ON notes USING btree (upper(content_pur) varchar_pattern_ops);
 
 
 --
@@ -237,4 +238,10 @@ INSERT INTO schema_migrations (version) VALUES ('20160129153243');
 INSERT INTO schema_migrations (version) VALUES ('20160206132148');
 
 INSERT INTO schema_migrations (version) VALUES ('20160206132801');
+
+INSERT INTO schema_migrations (version) VALUES ('20160308085742');
+
+INSERT INTO schema_migrations (version) VALUES ('20160308085929');
+
+INSERT INTO schema_migrations (version) VALUES ('20160308093745');
 

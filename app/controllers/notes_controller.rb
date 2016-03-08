@@ -14,7 +14,7 @@ class NotesController < ApplicationController
       content_search = "%"+title_search+"%"
       
       # upcase, damit Groß-/Kleinschreibung ignoriert wird, "*" wird durch "%" ersetzt
-      where_clause = ["user_id = ? and (upper(title) #{like_or_equal} ? or upper(content) like ?)", current_user.id, title_search, content_search]
+      where_clause = ["user_id = ? and (upper(title) #{like_or_equal} ? or upper(content_pur) like ?)", current_user.id, title_search, content_search]
       
       @notes = Note.where(where_clause).order(created_at: :desc).limit(10)
       

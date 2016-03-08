@@ -26,5 +26,5 @@
           %small
             = l note.created_at
         %h5
-          =  raw extract_result(strip_tags(note.content), @keywords, " ... ")
+          =  raw extract_result(note.content_pur, @keywords, " ... ")
           
