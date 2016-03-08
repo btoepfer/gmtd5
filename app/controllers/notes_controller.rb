@@ -28,7 +28,7 @@ class NotesController < ApplicationController
   def show
     @note = find_note(params[:id])
     if @note then
-      format_text(@note.title)
+      #format_text(@note.title)
       format_text(@note.content)
     end
     # Bei der Rückgabe als HTML sollten wir diese Ersetzung in der View machen.
@@ -93,7 +93,8 @@ class NotesController < ApplicationController
     v_rc = ""
     if text then
       # " @some text@ " wird zu " <code>some text</code> " inkl. der Blanks
-      text.gsub!(/ @(.[^@]*)@ /) { |r| " <code>#{$1}</code> "}
+      text.gsub!(/[" "]@(.[^@]*)@[" ", "\." ]/) { |r| " <code>#{$1}</code> "}
+      
       #logger.debug("1. text: #{text}")
       # "#text" wird zu "<mark>text</mark>" inkl. der Blanks
       text.gsub!(/[&nbsp;, " "]\#(\b\w+\b)/) { |r| "<mark tag_name=#{$1}>##{$1}</mark>"}
