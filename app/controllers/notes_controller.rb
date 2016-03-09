@@ -51,10 +51,26 @@ class NotesController < ApplicationController
   
   # Update durchführen
   def update
-    #byebug
+    note_tags = []
     @note = find_note(params[:id])
     
     if @note.update(note_params)
+      
+      # Tags aus dem Text extrahieren und als Tags speichern
+      # und der Notiz zuordnen
+      tags = get_tags_from_text(@note.content_pur)
+      tags.each do |tag|
+        begin
+          new_tag = Tag.create(:user_id => current_user.id, :name => tag[0])
+        rescue ActiveRecord::RecordNotUnique
+          new_tag = Tag.find_by_name(tag[0])
+        end
+        note_tags << new_tag
+      end
+      
+      # Nur eindeutige Einträge
+      @note.tags = note_tags.uniq
+      
       flash[:notice] = "'#{@note.title}' #{t :updated}"
       redirect_to @note
     end 
@@ -88,16 +104,22 @@ class NotesController < ApplicationController
     params.require(:note).permit(:title, :content)
   end
   
+  def get_tags_from_text(text)
+    tags = []
+    # non-word-boundary#word-boundary*word-boundary
+    tags = text.scan(/\B#(\b\w+\b)/) 
+    tags.each {|t| t[0].upcase!}
+  end
+  
   # Formatiert den Text
   def format_text(text)
-    v_rc = ""
     if text then
       # " @some text@ " wird zu " <code>some text</code> " inkl. der Blanks
-      text.gsub!(/[" "]@(.[^@]*)@[" ", "\." ]/) { |r| " <code>#{$1}</code> "}
+      text.gsub!(/\B@(.*?)@\B/) { |r| "<code>#{$1}</code>"}
       
       #logger.debug("1. text: #{text}")
       # "#text" wird zu "<mark>text</mark>" inkl. der Blanks
-      text.gsub!(/[&nbsp;, " "]\#(\b\w+\b)/) { |r| "<mark tag_name=#{$1}>##{$1}</mark>"}
+      text.gsub!(/\B#(\b\w+\b)/) { |r| "<mark tag_name=#{$1}>##{$1}</mark>"}
       #logger.debug("2. text: #{text}")
     end 
   end

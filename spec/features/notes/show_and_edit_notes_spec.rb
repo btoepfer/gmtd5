@@ -73,18 +73,44 @@ RSpec.feature "Show Note Details" do
   # Scenario: Notes shows formatted content
   #   Given I am a registered user
   #   When I use @@ or # in my note 
-  #   Then I see a the content formatted
+  #   Then I see a the content formated
   scenario "edit note" do
     visit note_path(id: 100)
     click_on I18n.t("edit_note")
     expect(page).to have_field :note_title
     fill_in :note_title, with: "Formatierte Notiz"
-    find('#note_content').set('The quick brown #fox @jumps@ over the lazy #dog.')
+    find('#note_content').set('#The quick brown #fox @jumps@ over the lazy #dog. And her#his it #is')
     click_on I18n.t("save")
     expect(page).to have_content "Formatierte Notiz"
     expect(find('.trix-content').find('code')).to have_content('jumps')
     expect(find('.trix-content').find('mark', :text => '#fox'))
     expect(find('.trix-content').find('mark', :text => '#dog'))
+    expect(find('.trix-content').find('mark', :text => '#The'))
+    expect(find('.trix-content').find('mark', :text => '#is'))
+    expect(page).not_to have_selector('mark', :text => '#his')
+  end
+  
+  # Scenario: Notes with tags generates tags and association
+  #   Given I am a registered user
+  #   When I use #text in my note 
+  #   Then tags are created and associated to this not
+  scenario "edit note" do
+    visit note_path(id: 100)
+    click_on I18n.t("edit_note")
+    expect(page).to have_field :note_title
+    fill_in :note_title, with: "Notiz mit Tags"
+    find('#note_content').set('Hier stehen #tags und #togs im Inhalt, #tags sogar zweimal')
+    click_on I18n.t("save")
+    expect(page).to have_content "Notiz mit Tags"
+    #expect(find('.trix-content').find('mark', {:text => '#tags', :count=>2}))
+    expect(find('.trix-content').find('mark', :text => '#togs'))
+    # Find Tags and association
+    t = Tag.where("name=?", "TAGS")
+    expect(t.count).to eq(1)
+    t = Tag.where("name=?", "TOGS")
+    expect(t.count).to eq(1)
+    t = Tag.joins(:notes).where("notes.id=?", 100)
+    expect(t.count).to eq(2)
   end
   
 end
