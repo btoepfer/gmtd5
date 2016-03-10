@@ -30,6 +30,7 @@ class NotesController < ApplicationController
     if @note then
       #format_text(@note.title)
       format_text(@note.content)
+      @tags = @note.tags
     end
     # Bei der Rückgabe als HTML sollten wir diese Ersetzung in der View machen.
     #respond_to do |format|
@@ -58,7 +59,8 @@ class NotesController < ApplicationController
       
       # Tags aus dem Text extrahieren und als Tags speichern
       # und der Notiz zuordnen
-      tags = get_tags_from_text(@note.content_pur)
+      tags = get_tags_from_text(@note.content_pur) + get_tags_from_text(@note.title)
+      
       tags.each do |tag|
         begin
           new_tag = Tag.create(:user_id => current_user.id, :name => tag[0])
