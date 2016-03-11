@@ -106,8 +106,10 @@ RSpec.feature "Show Note Details" do
     expect(find('.trix-content').find('mark', :text => '#togs'))
     # Find Tags and association
     t = Tag.where("name=?", "TAGS")
+    expect(t.count).to eq(0)
+    t = Tag.where("name=?", "tags")
     expect(t.count).to eq(1)
-    t = Tag.where("name=?", "TOGS")
+    t = Tag.where("name_upper=?", "TOGS")
     expect(t.count).to eq(1)
     t = Tag.joins(:notes).where("notes.id=?", 100)
     expect(t.count).to eq(2)
