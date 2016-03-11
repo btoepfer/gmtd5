@@ -91,7 +91,8 @@ CREATE TABLE tags (
     user_id integer NOT NULL,
     name character varying(100) NOT NULL,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    name_upper character varying
 );
 
 
@@ -238,10 +239,10 @@ CREATE INDEX index_notes_tags_on_tag_id ON notes_tags USING btree (tag_id);
 
 
 --
--- Name: index_tags_on_name; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_tags_on_name_upper; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
-CREATE UNIQUE INDEX index_tags_on_name ON tags USING btree (name);
+CREATE UNIQUE INDEX index_tags_on_name_upper ON tags USING btree (name_upper);
 
 
 --
@@ -366,4 +367,6 @@ INSERT INTO schema_migrations (version) VALUES ('20160308144204');
 INSERT INTO schema_migrations (version) VALUES ('20160309211908');
 
 INSERT INTO schema_migrations (version) VALUES ('20160309214525');
+
+INSERT INTO schema_migrations (version) VALUES ('20160310195316');
 

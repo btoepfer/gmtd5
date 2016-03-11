@@ -22,6 +22,8 @@ class NotesController < ApplicationController
     else
       @notes = Note.where("user_id = ?", current_user.id).order(created_at: :desc).limit(10)
     end
+    
+    
   end
   
   # Detailanzeige
@@ -65,7 +67,7 @@ class NotesController < ApplicationController
         begin
           new_tag = Tag.create(:user_id => current_user.id, :name => tag[0])
         rescue ActiveRecord::RecordNotUnique
-          new_tag = Tag.find_by_name(tag[0])
+          new_tag = Tag.where("user_id = ? and name_upper = upper(?)", current_user.id, tag[0]).take
         end
         note_tags << new_tag
       end
@@ -110,7 +112,7 @@ class NotesController < ApplicationController
     tags = []
     # non-word-boundary#word-boundary*word-boundary
     tags = text.scan(/\B#(\b\w+\b)/) 
-    tags.each {|t| t[0].upcase!}
+    #tags.each {|t| t[0].upcase!}
   end
   
   # Formatiert den Text
