@@ -224,6 +224,13 @@ CREATE INDEX index_notes_tags_on_note_id ON notes_tags USING btree (note_id);
 
 
 --
+-- Name: index_notes_tags_on_note_id_and_tag_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE UNIQUE INDEX index_notes_tags_on_note_id_and_tag_id ON notes_tags USING btree (note_id, tag_id);
+
+
+--
 -- Name: index_notes_tags_on_tag_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -284,6 +291,13 @@ CREATE INDEX notes_upper_content_pur ON notes USING btree (upper(content_pur) va
 --
 
 CREATE INDEX notes_upper_title ON notes USING btree (upper((title)::text) varchar_pattern_ops);
+
+
+--
+-- Name: tags_upper_name; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE UNIQUE INDEX tags_upper_name ON tags USING btree (upper((name)::text));
 
 
 --
@@ -348,4 +362,8 @@ INSERT INTO schema_migrations (version) VALUES ('20160308085929');
 INSERT INTO schema_migrations (version) VALUES ('20160308093745');
 
 INSERT INTO schema_migrations (version) VALUES ('20160308144204');
+
+INSERT INTO schema_migrations (version) VALUES ('20160309211908');
+
+INSERT INTO schema_migrations (version) VALUES ('20160309214525');
 

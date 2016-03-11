@@ -109,7 +109,7 @@ RSpec.feature "Show Note Details" do
     expect(t.count).to eq(0)
     t = Tag.where("name=?", "tags")
     expect(t.count).to eq(1)
-    t = Tag.where("name_upper=?", "TOGS")
+    t = Tag.where("upper(name)=upper(?)", "togs")
     expect(t.count).to eq(1)
     t = Tag.joins(:notes).where("notes.id=?", 100)
     expect(t.count).to eq(2)

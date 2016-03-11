@@ -9,7 +9,6 @@ class CreateTags < ActiveRecord::Migration
     end
     
     add_foreign_key :tags, :users
-    add_index :tags, :name
       
     # Intersection table
     create_table :notes_tags, id: false do |t|

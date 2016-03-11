@@ -65,9 +65,10 @@ class NotesController < ApplicationController
       
       tags.each do |tag|
         begin
+          # Bang-Version, damit "RecordNotFound"-Exception geworfen wird
+          new_tag = Tag.where("user_id = ? and upper(name) = upper(?)", current_user.id, tag[0]).take!
+        rescue ActiveRecord::RecordNotFound
           new_tag = Tag.create(:user_id => current_user.id, :name => tag[0])
-        rescue ActiveRecord::RecordNotUnique
-          new_tag = Tag.where("user_id = ? and name_upper = upper(?)", current_user.id, tag[0]).take
         end
         note_tags << new_tag
       end
