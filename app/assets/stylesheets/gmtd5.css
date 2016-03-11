@@ -29,3 +29,7 @@ body {
   top: 55px;
   position: fixed;
 }
+
+.tool-palette {
+  letter-spacing: 2px;
+}

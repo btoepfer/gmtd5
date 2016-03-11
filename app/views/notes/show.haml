@@ -2,14 +2,12 @@
   .page-header
     %h3
       = @note.title if @note
-    
+      
     .row
       %div{:class=>"col-xs-6 text-left"}
         = l @note.created_at 
       %div{:class=>"col-xs-6 text-right"}
-        = link_to t(:create_note), new_note_path
-        &nbsp;|&nbsp;
-        = link_to t(:edit_note), edit_note_path(@note.id)
+        = render :partial => "tool_palette", :locals => {:id => @note.id, :new_icon => true}
       
   %section
     .trix-content

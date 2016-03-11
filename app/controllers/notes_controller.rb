@@ -20,7 +20,7 @@ class NotesController < ApplicationController
       @notes = Note.where(where_clause).order(created_at: :desc).limit(10)
       
     else
-      @notes = Note.where("user_id = ?", current_user.id).order(created_at: :desc).limit(10)
+      @notes = Note.where("user_id = ?", current_user.id).order(id: :desc).limit(10)
     end
     
     

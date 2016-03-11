@@ -1,5 +1,5 @@
 .page-header
-  %section(class="search-form")
+  %section(id="search-form")
     %div(class="text-center")
       = form_for(:note, url: notes_path, 
                 :html => {:class=>"form-inline", :role => "search", :method => :get}) do |f|
@@ -13,7 +13,7 @@
         = link_to t(:create_note), new_note_path(@note)
         
 
-%section(class="search-results")
+%section(id="search-results")
   %header
     %h3
       = t :results
@@ -21,7 +21,10 @@
     - @notes.each do |note|
       %li(class="list-group-item")
         %h4
-          = link_to raw(extract_result(note.title, @keywords)), note_path(note.id)
+          %div(class="col-xs-8 text-left")
+            = link_to raw(extract_result(note.title, @keywords)), note_path(note.id)
+          %small(class="col-xs-4 text-right" )
+            = render :partial => "tool_palette", :locals => {:id => note.id}
           %br
           %small
             = l note.created_at

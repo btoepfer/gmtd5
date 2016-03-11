@@ -57,5 +57,8 @@ en:
   note_not_found: "Note not found"
   edit_note: "Edit note"
   create_note: "Create note"
+  delete_note: "Delete note"
+  export_to_pdf_note: "Export as pdf"
+  mail_note: "send as email"
   title: "Title"
   content: "Content"

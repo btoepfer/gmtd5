@@ -17,6 +17,17 @@ RSpec.feature "Perform Note Search" do
     login_as(user)
   end
   
+  # Scenario: Index-Seite existiert und es existiert eine Suchmaske
+  #   Als angemeldeter Benutzer:
+  #   wenn ich die Index-Seite aufrufe,
+  #   dann sehe ich eine Suchmaske
+  scenario "logged in" do
+    login_as(user)
+    visit notes_path
+    expect(page).to have_field('note_keywords', :type => 'search')
+  end
+  
+  
   # Scenario: User can search for notes in title without wildcards
   #   Given I am a registered user
   #   When I fill in a keyword and press search
@@ -25,8 +36,8 @@ RSpec.feature "Perform Note Search" do
     visit notes_path
     fill_in "note_keywords", with: "NLS Parameter"
     click_button "search"
-    expect(find('.search-results')).to have_content "NLS Parameter"
-    expect(find('.search-results')).to have_content "NLS_LANG"
+    expect(find('#search-results')).to have_content "NLS Parameter"
+    expect(find('#search-results')).to have_content "NLS_LANG"
   end
   
   # Scenario: User can search only for his own notes in title without wildcards
@@ -37,7 +48,7 @@ RSpec.feature "Perform Note Search" do
     visit notes_path
     fill_in "note_keywords", with: "NLS Parameter"
     click_button "search"
-    expect(find('.search-results')).not_to have_content "NLS2"
+    expect(find('#search-results')).not_to have_content "NLS2"
   end
   
   # Scenario: User can search for notes in title with wildcards (*)
@@ -48,7 +59,7 @@ RSpec.feature "Perform Note Search" do
     visit notes_path
     fill_in "note_keywords", with: "NLS*"
     click_button "search"
-    expect(find('.search-results')).to have_content "NLS Parameter"
+    expect(find('#search-results')).to have_content "NLS Parameter"
   end
   
   
@@ -60,7 +71,7 @@ RSpec.feature "Perform Note Search" do
     visit notes_path
     fill_in "note_keywords", with: "AMERICAN*"
     click_button "search"
-    expect(find('.search-results')).to have_content "NLS Parameter"
+    expect(find('#search-results')).to have_content "NLS Parameter"
   end
   
   # Scenario: User can search for notes in content and gets keyword highlighted
@@ -76,7 +87,7 @@ RSpec.feature "Perform Note Search" do
     expect(page).to have_content "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut a ... consequat ..."
     # keyword highlighted with class: "text-danger"
     #expect(page).to have_css('span.text-danger')
-    expect(find('.search-results').find('span.text-danger')).to have_content('consequat')
+    expect(find('#search-results').find('span.text-danger')).to have_content('consequat')
   end
   
 end

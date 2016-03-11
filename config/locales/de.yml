@@ -36,6 +36,9 @@ de:
   note_not_found: "Notiz nicht vorhanden"
   edit_note: "Notiz ändern"
   create_note: "Neue Notiz"
+  delete_note: "Notiz löschen"
+  export_to_pdf_note: "Als pdf-Datei exportieren"
+  mail_note: "Als E-Mail verschicken"
   title: "Titel"
   content: "Inhalt"
 
