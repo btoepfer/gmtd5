@@ -4,10 +4,8 @@
       = @note.title if @note
     .row
       %div(class="col-xs-6 text-left")
-        %i(class="fa fa-calendar")
-        = l @note.created_at 
-        &nbsp;
-        = render "tags"
+        = render :partial => "tags_and_date", :locals => {:tags => @note.tags, :created_at => @note.created_at} 
+        
       %div(class="col-xs-6 text-right")
         = render :partial => "tool_palette", :locals => {:id => @note.id, :new_icon => true}
       

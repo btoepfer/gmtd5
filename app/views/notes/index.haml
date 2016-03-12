@@ -16,8 +16,6 @@
 
 %section(id="search-results")
   %header
-    %h3
-      = t :results
   %ol(class="list-group")
     - @notes.each do |note|
       %li(class="list-group-item")
@@ -27,7 +25,7 @@
               = link_to raw(extract_result(note.title, @keywords)), note_path(note.id)
               %br
               %small
-                = l note.created_at
+                = render :partial => "tags_and_date", :locals => {:tags => note.tags, :created_at => note.created_at} 
             %div(class="col-xs-4 text-right")
               %small
                 = render :partial => "tool_palette", :locals => {:id => note.id}

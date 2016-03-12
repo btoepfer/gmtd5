@@ -1,0 +1,9 @@
+%i(class="fa fa-calendar")
+= l created_at 
+&nbsp;
+- if tags.present? then
+  %i(class="fa fa-tag")
+  
+  - tags.each do |tag|
+    %mark
+      = "##{tag.name}"
