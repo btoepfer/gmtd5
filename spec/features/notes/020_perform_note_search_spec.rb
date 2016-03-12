@@ -51,25 +51,25 @@ RSpec.feature "Perform Note Search" do
     expect(find('#search-results')).not_to have_content "NLS2"
   end
   
-  # Scenario: User can search for notes in title with wildcards (*)
+  # Scenario: User can search for notes in title 
   #   Given I am a registered user
   #   When I fill in a keyword and press search
   #   Then I see a the result page
-  scenario "search for title name with wildcards" do
+  scenario "search for title name" do
     visit notes_path
-    fill_in "note_keywords", with: "NLS*"
+    fill_in "note_keywords", with: "NLS"
     click_button "search"
     expect(find('#search-results')).to have_content "NLS Parameter"
   end
   
   
-  # Scenario: User can search for notes in title or content with wildcards (*)
+  # Scenario: User can search for notes in title or content
   #   Given I am a registered user
   #   When I fill in a keyword and press search
   #   Then I see a the result page
-  scenario "search for title or content with wildcards" do
+  scenario "search for title or content" do
     visit notes_path
-    fill_in "note_keywords", with: "AMERICAN*"
+    fill_in "note_keywords", with: "AMERICAN"
     click_button "search"
     expect(find('#search-results')).to have_content "NLS Parameter"
   end
@@ -79,7 +79,7 @@ RSpec.feature "Perform Note Search" do
   #   When I fill in a keyword and press search
   #   Then I see a the result page and 
   #   I see the given keyword highlighted
-  scenario "search for title or content with wildcards" do
+  scenario "search for title or content" do
     visit notes_path
     fill_in "note_keywords", with: "consequat"
     click_button "search"

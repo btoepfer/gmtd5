@@ -7,6 +7,8 @@ class Note < ActiveRecord::Base
   
   before_save :strip_html_tags
   
+  
+  
   protected
     def strip_html_tags
       self.content_pur = ActionView::Base.full_sanitizer.sanitize(self.content)

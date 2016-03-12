@@ -2,20 +2,19 @@
   .page-header
     %h3
       = @note.title if @note
-      
     .row
-      %div{:class=>"col-xs-6 text-left"}
+      %div(class="col-xs-6 text-left")
+        %i(class="fa fa-calendar")
         = l @note.created_at 
-      %div{:class=>"col-xs-6 text-right"}
+        &nbsp;
+        = render "tags"
+      %div(class="col-xs-6 text-right")
         = render :partial => "tool_palette", :locals => {:id => @note.id, :new_icon => true}
       
   %section
     .trix-content
       = find_and_preserve @note.content.html_safe
       
-    %hr
-    %div
-      = render "tags"
     
 - else
   %h1

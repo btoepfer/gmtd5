@@ -4,23 +4,26 @@ class NotesController < ApplicationController
   # Index bzw. Suchmaske
   def index
     where = []
-    like_or_equal = "="
-    if params[:s].present?
+  
+    if params[:s].present?  # Suche nach Schlagworten
       @keywords = params[:s]
+            
+      search = "%"+@keywords.upcase+"%"
       
-      # Enthält der Suchbegriff ein "*", dann suchen wir mit "like"
-      like_or_equal = "like" # if @keywords.include? '*'
+      # upcase, damit Groß-/Kleinschreibung ignoriert wird
+      where_clause = ["(upper(title) like ? or upper(content_pur) like ?)", search, search]
       
-      title_search = "%"+@keywords.upcase.gsub('*','%')+"%"
-      content_search = "%"+title_search+"%"
+      # wir suchen nur in den Notizen des aktuell angemeldeten Users
+      @notes = current_user.notes.where(where_clause).order(id: :desc).limit(10)
       
-      # upcase, damit Groß-/Kleinschreibung ignoriert wird, "*" wird durch "%" ersetzt
-      where_clause = ["user_id = ? and (upper(title) #{like_or_equal} ? or upper(content_pur) like ?)", current_user.id, title_search, content_search]
+    elsif params[:t].present? # Suche über einen konkreten Tag
+      @selected_tag = params[:t]
       
-      @notes = Note.where(where_clause).order(created_at: :desc).limit(10)
+      # Alle Notizen zu einem konkreten Tag
+      @notes = current_user.tags.find(id: @selected_tag).notes.order(id: :desc)
       
-    else
-      @notes = Note.where("user_id = ?", current_user.id).order(id: :desc).limit(10)
+    else # kein Suchbegriff, es werden die ersten 10 Notizen gezeigt.
+      @notes = current_user.notes.order(id: :desc).limit(10)
     end
     
     

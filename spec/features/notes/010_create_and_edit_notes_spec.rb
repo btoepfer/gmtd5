@@ -21,7 +21,7 @@ RSpec.feature "Show Note Details" do
   #   Then I see a the result page and can navigate to the details page
   scenario "search for note to show details" do
     visit notes_path
-    fill_in "note_keywords", with: "Aut temporibus*"
+    fill_in "note_keywords", with: "Aut temporibus"
     click_button "search"
     expect(page).to have_content "Aut temporibus quod maxime"
     expect(page).to have_content "Harum iusto quidem ut a. Totam accusamus neque voluptatem architecto."

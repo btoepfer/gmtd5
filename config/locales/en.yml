@@ -45,7 +45,7 @@ en:
   account: "Account"
   
   keywords: "Keywords"
-  search_for: "Search for title, keywords or tags (use '*' as wildcard)"
+  search_for: "Search for title or keywords"
   search: "Search"
   results: "Search Results"
 

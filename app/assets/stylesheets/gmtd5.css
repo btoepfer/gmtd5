@@ -32,4 +32,9 @@ body {
 
 .tool-palette {
   letter-spacing: 2px;
+  font-size: 1.15em;
+}
+
+.tool-palette a {
+  color:#000;
 }
