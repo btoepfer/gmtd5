@@ -6,5 +6,6 @@ class User < ActiveRecord::Base
          :confirmable, :lockable
          
   has_many :notes
+  has_many :tags
   
 end
