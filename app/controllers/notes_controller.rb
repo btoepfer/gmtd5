@@ -23,7 +23,7 @@ class NotesController < ApplicationController
       @selected_tag = params[:t]
       
       # Alle Notizen zu einem konkreten Tag
-      @notes = current_user.notes.joins(:tags).where("tags.id = ?", @selected_tag)
+      @notes = current_user.notes.joins(:tags).where("tags.id = ?", @selected_tag).order(id: :desc)
       
     else # kein Suchbegriff, es werden die ersten 10 Notizen gezeigt.
       @notes = current_user.notes.order(id: :desc).limit(10)
