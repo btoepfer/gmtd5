@@ -13,3 +13,18 @@ mark {
   background: #fff;
 }
     
+#tag-cloud {
+  margin-top:1em;
+}
+
+#tag-cloud  ul {
+    list-style: none;
+}
+
+#tag-cloud  li {
+    position: relative;
+    display: block;
+    float: left;
+    margin-left: 8px;
+    line-height:1.6em;
+}

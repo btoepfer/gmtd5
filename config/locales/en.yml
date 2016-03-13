@@ -51,6 +51,7 @@ en:
 
   created: " has been sucessfully created."
   updated: " has been sucessfully updated."
+  deleted: " has been sucessfully deleted."
 
   # Notes
   notes: "Notes"
@@ -58,6 +59,7 @@ en:
   edit_note: "Edit note"
   create_note: "Create note"
   delete_note: "Delete note"
+  confirm_delete_note: "Do you really want to delete this note?"
   export_to_pdf_note: "Export as pdf"
   mail_note: "send as email"
   title: "Title"

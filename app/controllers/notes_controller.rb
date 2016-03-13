@@ -80,6 +80,17 @@ class NotesController < ApplicationController
     end 
   end
   
+  def destroy
+      @note = find_note(params[:id])
+
+      title = @note.title
+      
+      @note.destroy
+      
+      flash[:notice] = "'#{title}' #{t :deleted}"
+      redirect_to notes_path
+  end
+  
   # Private Methoden
   private
   def find_note(id)
