@@ -36,8 +36,9 @@ module TagsHelper
     # display the results
     size_txt = "font-size:#{ size.to_s }px;" unless hide_sizes
     color_txt = "color:rgb(#{ colors });" unless hide_colours
+    padding   = "padding:0 5px 0 5px"
     # Return something like: font-size:14px;color:rgb(0,0,0);
-    return [ size_txt, color_txt ].join
+    return [ size_txt, color_txt, padding ].join
   end
   
 end

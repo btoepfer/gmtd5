@@ -9,16 +9,14 @@
             %i{:class=>"fa fa-search"}
               = t(:search)
     .row
-      %div(id="tag-cloud" class="col-xs-offset-2 col-xs-8 text-center")
-        %ul
-          - @tags.uniq.each do |tag|
-            - v_style = font_size_for_tag_cloud(tag.notes.count, 1, 4)
-            %li(role="presentation")
-              %div(style="#{v_style}")
-                = link_to("notes?t=#{tag.id}") do
-                  = "##{tag.name}"
+      %div(id="tag-cloud" class="col-xs-10 col-md-offset-2 col-md-8 text-center")
+        - @tags.uniq.each do |tag|
+          - v_style = font_size_for_tag_cloud(tag.notes.count, 1, 4)
+          %span(style="#{v_style}")
+            = link_to("notes?t=#{tag.id}") do
+              = "##{tag.name}"
 
-      %div(class="col-xs-2 text-right" style="font-size:1.5em")
+      %div(class="col-xs-2 col-md-2 text-right" style="font-size:1.5em")
         = link_to(new_note_path, title: t(:create_note)) do
           %i(class="fa fa-plus-square-o")
         
