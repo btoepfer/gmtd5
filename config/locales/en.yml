@@ -27,7 +27,7 @@ en:
 
   time:
     formats:
-      default: "%d.%m.%Y %H:%M"
+      default: "%d.%m.%y %H:%M"
       
   hello: "Hello world"
   projects: "Projects"
@@ -64,3 +64,4 @@ en:
   mail_note: "send as email"
   title: "Title"
   content: "Content"
+  related_notes: "Related Notes"

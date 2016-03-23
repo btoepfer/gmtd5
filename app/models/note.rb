@@ -7,7 +7,9 @@ class Note < ActiveRecord::Base
   
   before_save :strip_html_tags
   
-  
+  # Hier können wir für eine Notiz die verwandten Notizen speichern
+  attr_reader :related_notes
+  attr_writer :related_notes
   
   protected
     def strip_html_tags

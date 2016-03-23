@@ -34,6 +34,7 @@ RSpec.feature "Show Note index" do
   #   Als angemeldeter Benutzer:
   #   wenn ich die Index-Seite aufrufe,
   #   dann sehe ich meine letzten 10 Notizen
+  #   um diese editieren zu können
   scenario "show edit/delete link in list" do
     login_as(user)
     visit notes_path

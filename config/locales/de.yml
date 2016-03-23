@@ -6,7 +6,7 @@ de:
 
   time:
     formats:
-      default: "%d.%m.%Y %H:%M"
+      default: "%d.%m.%y %H:%M"
       
   hello: "Hello world"
   projects: "Projekte"
@@ -43,4 +43,5 @@ de:
   mail_note: "Als E-Mail verschicken"
   title: "Titel"
   content: "Inhalt"
+  related_notes: "Ähnliche Notizen"
 

@@ -1,8 +1,10 @@
-%i(class="fa fa-calendar")
-= l created_at 
-&nbsp;
-- if tags.present? then
-  %i(class="fa fa-tag")
-  
-  - tags.each do |tag|
-    = "##{tag.name}"
+%small
+  -if created_at
+    %i(class="fa fa-calendar")
+    = l created_at 
+    &nbsp;
+    
+  - if tags.present? then
+    %i(class="fa fa-tag")
+      - tags.each do |tag|
+        = link_to "##{tag.name}", notes_path(t:tag.id)

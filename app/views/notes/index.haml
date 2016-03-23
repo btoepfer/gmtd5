@@ -31,7 +31,6 @@
             %div(class="col-xs-8 text-left")
               = link_to raw(extract_result(note.title, @keywords)), note_path(note.id)
               %br
-              %small
                 = render :partial => "tags_and_date", :locals => {:tags => note.tags, :created_at => note.created_at} 
             %div(class="col-xs-4 text-right")
               %small
