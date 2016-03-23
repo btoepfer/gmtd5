@@ -37,8 +37,8 @@ class NotesController < ApplicationController
     @note = find_note(params[:id])
     if @note then
       #format_text(@note.title)
-      format_text(@note.content)
       @tags = @note.tags
+      format_text(@note.content, @tags)
     end
   end
   
@@ -105,9 +105,10 @@ class NotesController < ApplicationController
   
   def get_tags_from_text(text)
     tags = []
+    # Inhalte innerhalb der <pre>-Tags werden ignoriert
+    text.gsub!(/<pre>.*<\/pre>/, "")
     # non-word-boundary#word-boundary*word-boundary
     tags = text.scan(/\B#(\b\w+\b)/) 
-    #tags.each {|t| t[0].upcase!}
   end
   
   def gen_tags(note)
@@ -130,14 +131,15 @@ class NotesController < ApplicationController
   end
   
   # Formatiert den Text
-  def format_text(text)
+  def format_text(text, tags=[])
     if text then
       # " @some text@ " wird zu " <code>some text</code> " inkl. der Blanks
       text.gsub!(/\B@(.*?)@\B/) { |r| "<code>#{$1}</code>"}
-      
-      #logger.debug("1. text: #{text}")
-      # "#text" wird zu "<mark>text</mark>" inkl. der Blanks
-      text.gsub!(/\B#(\b\w+\b)/) { |r| "<mark tag_name=#{$1}>##{$1}</mark>"}
+    
+      # alle tags werden ersetzt durch "<mark>text</mark>"
+      tags.each do |tag|
+        text.gsub!(/(##{tag.name})/) { |r| "<mark tag_name=#{$1}>#{$1}</mark>"}
+      end
       #logger.debug("2. text: #{text}")
     end 
   end

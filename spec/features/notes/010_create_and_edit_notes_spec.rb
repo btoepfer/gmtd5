@@ -115,6 +115,23 @@ RSpec.feature "Show Note Details" do
     expect(t.count).to eq(2)
   end
   
+  # Scenario: Notes with tags inside <pre>*</pre> generates no tags and association
+  #   Given I am a registered user
+  #   When I use #text in my note 
+  #   Then tags are created and associated to this not
+  scenario "edit note" do
+    visit note_path(id: 100)
+    click_on I18n.t("edit_note")
+    expect(page).to have_field :note_title
+    fill_in :note_title, with: "Notiz mit Tags"
+    find('#note_content').set('code:<pre>$(#id).fade();</pre>')
+    click_on I18n.t("save")
+    expect(page).not_to have_content('<mark tag_name="id">')
+    # Find Tags and association
+    t = Tag.where("name=?", "id")
+    expect(t.count).to eq(0)
+    
+  end
 end
 
 
