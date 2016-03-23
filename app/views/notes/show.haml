@@ -16,9 +16,10 @@
   
 
   #related-notes(class="col-xs-12 col-md-4")
-    %h4
-      %i(class="fa fa-tags")
-      = t :related_notes
+    .page-header
+      %h4
+        %i(class="fa fa-tags")
+        = t :related_notes
 
     %ol(class="list-group")
       - @note.related_notes.each do |note|
