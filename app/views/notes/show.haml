@@ -1,19 +1,34 @@
 - if @note then
-  .page-header
-    %h3
-      = @note.title if @note
-    .row
-      %div(class="col-xs-6 text-left")
-        = render :partial => "tags_and_date", :locals => {:tags => @note.tags, :created_at => @note.created_at} 
-        
-      %div(class="col-xs-6 text-right")
-        = render :partial => "tool_palette", :locals => {:id => @note.id, :new_icon => true}
+  %div(class="col-xs-12 col-md-8 ")
+    .page-header
+      %h3
+        = @note.title if @note
+      .row
+        %div(class="col-xs-6 text-left")
+          = render :partial => "tags_and_date", :locals => {:tags => @note.tags, :created_at => @note.created_at} 
       
-  %section
-    .trix-content
-      = find_and_preserve @note.content.html_safe
+        %div(class="col-xs-6 text-right")
+          = render :partial => "tool_palette", :locals => {:id => @note.id, :new_icon => true}
       
+    %section
+      .trix-content
+        = find_and_preserve @note.content.html_safe
+  
+
+  #related-notes(class="col-xs-12 col-md-4")
+    %h4
+      %i(class="fa fa-tags")
+      = t :related_notes
+
+    %ol(class="list-group")
+      - @note.related_notes.each do |note|
+        %li(class="list-group-item")
+          %h5
+            = link_to note.title, note_path(note.id)
+            %br
+            = render :partial => "tags_and_date", :locals => {:tags => note.tags, :created_at => note.created_at}
     
 - else
-  %h1
-    = t :note_not_found
+  .page-header
+    %h3
+      = t :note_not_found
