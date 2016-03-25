@@ -1,7 +1,6 @@
 %h4
-  = t :edit_note 
-      
-%section{:class => "col-sm-12 col-md-12"}
+  
+%section{:class => "col-sm-12 col-md-offset-1 col-md-10"}
   = form_for(:note, url: note_path, html: { method: :put }) do |f|
     .form-group
       = f.label :title, t(:title)
