@@ -11,7 +11,7 @@
           = render :partial => "tool_palette", :locals => {:id => @note.id, :new_icon => true}
       
     %section
-      .trix-content
+      .trix-content(class="trix-show")
         = find_and_preserve @note.content.html_safe
   
 

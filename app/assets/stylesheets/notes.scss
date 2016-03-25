@@ -47,7 +47,7 @@ mark {
 
 // Eigene Anpassung an trix-content
 // <br> soll einen halben Zeilenabstand erzeugen
-.trix-content br
+.trix-show br
 {   content: "a" !important;
     display: block !important;
     margin-bottom: 0.5em !important;
