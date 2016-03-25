@@ -5,7 +5,7 @@
         = @note.title if @note
       .row
         %div(class="col-xs-6 text-left")
-          = render :partial => "tags_and_date", :locals => {:tags => @note.tags, :created_at => @note.created_at} 
+          = render :partial => "tags_and_date", :locals => {:tags => @note.tags, :updated_at => @note.updated_at} 
       
         %div(class="col-xs-6 text-right")
           = render :partial => "tool_palette", :locals => {:id => @note.id, :new_icon => true}
@@ -27,7 +27,7 @@
           %h5
             = link_to note.title, note_path(note.id)
             %br
-            = render :partial => "tags_and_date", :locals => {:tags => note.tags, :created_at => note.created_at}
+            = render :partial => "tags_and_date", :locals => {:tags => note.tags, :updated_at => note.updated_at}
     
 - else
   .page-header
