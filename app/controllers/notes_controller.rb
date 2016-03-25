@@ -17,16 +17,16 @@ class NotesController < ApplicationController
       where_clause = ["(upper(title) like ? or upper(content_pur) like ?)", search, search]
       
       # wir suchen nur in den Notizen des aktuell angemeldeten Users
-      @notes = current_user.notes.where(where_clause).order(id: :desc).limit(10)
+      @notes = current_user.notes.where(where_clause).order(updated_at: :desc).limit(10)
       
     elsif params[:t].present? # Suche über einen konkreten Tag
       @selected_tag = params[:t]
       
       # Alle Notizen zu einem konkreten Tag
-      @notes = current_user.notes.joins(:tags).where("tags.id = ?", @selected_tag).order(id: :desc)
+      @notes = current_user.notes.joins(:tags).where("tags.id = ?", @selected_tag).order(updated_at: :desc)
       
     else # kein Suchbegriff, es werden die ersten 10 Notizen gezeigt.
-      @notes = current_user.notes.order(id: :desc).limit(10)
+      @notes = current_user.notes.order(updated_at: :desc).limit(10)
     end
     
     
@@ -107,8 +107,9 @@ class NotesController < ApplicationController
   
   def get_tags_from_text(text)
     tags = []
-    # Inhalte innerhalb der <pre>-Tags werden ignoriert
-    text.gsub!(/<pre>.*<\/pre>/, "")
+    # Inhalte innerhalb der <pre>-Tags werden ignoriert,
+    # auch über Zeilenumbrüche hinweg (/.../m)
+    text.gsub!(/<pre>.*<\/pre>/m, "")
     # non-word-boundary#word-boundary*word-boundary
     tags = text.scan(/\B#(\b\w+\b)/) 
   end

@@ -43,5 +43,15 @@ mark {
   &:first-child {
     border-top: 0px;
   }
+}
 
+// Eigene Anpassung an trix-content
+// <br> soll einen halben Zeilenabstand erzeugen
+.trix-content br
+{   content: "a" !important;
+    display: block !important;
+    margin-bottom: 0.5em !important;
+}
+.trix-content pre {
+  margin: 2px 0 2px 15px;
 }
