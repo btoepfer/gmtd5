@@ -7,7 +7,6 @@
           = f.text_field :keywords,  autofocus: true, placeholder: t(:search_for), class: "form-control",  type: "search", size:80, name:"s", value: @keywords
           %button{:id => "search", :type => "submit", :class=>"btn btn-primary"}
             %i{:class=>"fa fa-search"}
-              = t(:search)
     .row
       %div(id="tag-cloud" class="col-xs-10 col-md-offset-2 col-md-8 text-center")
         - @tags.uniq.each do |tag|
@@ -16,9 +15,10 @@
             = link_to("notes?t=#{tag.id}") do
               = "##{tag.name}"
 
-      %div(class="col-xs-2 col-md-2 text-right" style="font-size:1.5em")
-        = link_to(new_note_path, title: t(:create_note)) do
-          %i(class="fa fa-plus-square-o")
+      %div(class="col-xs-2 col-md-2 text-right")
+        = link_to(new_note_path, title: t(:create_note), class: "btn btn-primary offset-top-18") do
+          %i(class="fa fa-plus")
+          =t(:create_note)
         
 
 %section(id="search-results")
@@ -37,7 +37,6 @@
                 = render :partial => "tool_palette", :locals => {:id => note.id}
             
         .row
-          %div(class="col-xs-12 text-left")
-            %h5
-              =  raw extract_result(note.content_pur, @keywords, " ... ")
+          .content(class="col-xs-12 text-left")
+            =  raw extract_result(note.content_pur, @keywords, " ... ")
           
