@@ -55,7 +55,12 @@ mark {
 
 .trix-content pre {
   margin: 2px 0 2px 15px;
+  overflow:auto;
+  word-break: normal !important;
+  word-wrap: normal !important;
+  white-space: pre !important;
 }
+
 .trix-content del {
   font-family: monospace;
   font-size: 0.95em;
