@@ -52,6 +52,15 @@ mark {
     display: block !important;
     margin-bottom: 0.5em !important;
 }
+
 .trix-content pre {
   margin: 2px 0 2px 15px;
+}
+.trix-content del {
+  font-family: monospace;
+  font-size: 0.95em;
+  white-space: pre-wrap;
+  background-color: #fff; 
+  color: #666;
+  text-decoration: none; 
 }

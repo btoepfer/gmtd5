@@ -38,7 +38,7 @@ class NotesController < ApplicationController
     if @note then
       #format_text(@note.title)
       @tags = @note.tags
-      format_text(@note.content, @tags)
+      #format_text(@note.content, @tags)
       
       @note.related_notes = current_user.notes.joins(:tags).where('note_id <> ? and tag_id in (select tag_id from notes_tags where note_id = ?)', @note.id, @note.id).order(id: :desc)
     end
