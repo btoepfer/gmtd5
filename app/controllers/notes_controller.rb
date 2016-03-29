@@ -6,6 +6,7 @@ class NotesController < ApplicationController
     where = []
     
     # alle tags, die mindestens einer Notiz zugeordnet sind
+    # TODO: Sortierung nach "lower(name)"
     @tags = current_user.tags.joins(:notes).all
     
     if params[:s].present?  # Suche nach Schlagworten
