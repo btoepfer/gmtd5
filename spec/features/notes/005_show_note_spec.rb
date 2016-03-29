@@ -38,7 +38,7 @@ RSpec.feature "Show Note" do
   #   Als angemeldeter Benutzer:
   #   wenn ich die Show-Seite mit der ID 200 aufrufe,
   #   dann sehe ich diese Notiz plus verwandte Notizen
-  scenario "logged in" do
+  scenario "related notes" do
     login_as(user)
     visit note_path(id:200)
     
