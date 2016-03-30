@@ -13,10 +13,10 @@ RSpec.feature "Show Note" do
   
   # Und eine Notiz mit dem Tag #Oracle, die dem ersten User gehört
   let!(:note) {FactoryGirl.create(:note, id: 200, title: "NLS Parameter", content: "#Oracle: export NLS_LANG=AMERICAN_AMERICA.WE8ISO8859P1", user_id: 1 )}
-  [201..203].each do |id| # IDs von 0 bis 11
+  [201,202,203].each do |id| # IDs von 201 bis 203
     let!("note_#{id}") {FactoryGirl.create(:note, id: id, title: "Notiz - #{id}", content: "#Oracle: the #{id}. dog jumps over the lazy dog.", user_id: 1 )}
   end
-  [300..302].each do |id| # IDs von 0 bis 11
+  [300,301,302].each do |id| # IDs von 300 bis 302
     let!("note_#{id}") {FactoryGirl.create(:note, id: id, title: "Notiz - #{id}", content: "#MySQL: the #{id}. dog jumps over the lazy dog.", user_id: 1 )}
   end
   
@@ -46,9 +46,9 @@ RSpec.feature "Show Note" do
     expect(page).to have_content "NLS Parameter"
     
     # Neben der Notizen sollen weitere Notizen mit denselben Tags gezeigt werden
-    expect(find('#related-notes').find('h5')).to have_content('Notiz - 201')
-    expect(find('#related-notes').find('h5')).to have_content('Notiz - 202')
-    expect(find('#related-notes').find('h5')).not_to have_content('Notiz - 302')
+    expect(find('#related-notes')).to have_content('Notiz - 201')
+    expect(find('#related-notes')).to have_content('Notiz - 202')
+    expect(find('#related-notes')).not_to have_content('Notiz - 302')
     
   end
   

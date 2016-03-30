@@ -8,14 +8,14 @@
           %button{:id => "search", :type => "submit", :class=>"btn btn-primary"}
             %i{:class=>"fa fa-search"}
     .row
-      %div(id="tag-cloud" class="col-xs-10 col-md-offset-2 col-md-8 text-center")
+      %div(id="tag-cloud" class="col-xs-12 col-md-offset-2 col-md-8 text-center")
         - @tags.uniq.each do |tag|
           - v_style = font_size_for_tag_cloud(tag.notes.count, 1, 4)
           %span(style="#{v_style}")
             = link_to("notes?t=#{tag.id}") do
               = "##{tag.name}"
 
-      %div(class="col-xs-2 col-md-2 text-right")
+      %div(class="col-xs-12 col-md-2 text-right")
         = link_to(new_note_path, title: t(:create_note), class: "btn btn-primary offset-top-18") do
           %i(class="fa fa-plus")
           =t(:create_note)
