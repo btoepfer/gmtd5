@@ -6,10 +6,13 @@ class Note < ActiveRecord::Base
   has_and_belongs_to_many :tags
   
   # Vor dem Speichern wird der Inhalt bereinigt um die HTML-Tags 
-  # in content_pur gespeichert und
-  # es werden aus dem Text die Tags (#...) extrahiert und
+  # in content_pur gespeichert
+  before_save :strip_html_tags
+  
+  # Nach dem erfolgreichen Speichern werden aus dem Text 
+  # die Tags (#...) extrahiert und
   # als solche gespeichert
-  before_save :strip_html_tags, :gen_tags
+  after_commit  :gen_tags
   
   # Hier können wir für eine Notiz die verwandten Notizen speichern
   attr_reader :related_notes
@@ -28,15 +31,25 @@ class Note < ActiveRecord::Base
       tags = get_tags_from_text(self.content) + get_tags_from_text(self.title)
     
       tags.each do |tag|
-        begin
-          # Bang-Version, damit "RecordNotFound"-Exception geworfen wird
-          new_tag = Tag.where("user_id = ? and upper(name) = upper(?)", self.user_id, tag[0]).take!
-        rescue ActiveRecord::RecordNotFound
-          new_tag = Tag.create(:user_id => self.user_id, :name => tag[0])
-        end
+        new_tag = find_or_create(self.user_id, tag[0])
+        
         note_tags << new_tag
       end
       self.tags = note_tags.uniq
+    end
+    
+    # Vorhandenes Tag verwenden oder neu anlegen
+    # Die ActiveRecord-Methode "find_and_create" kann hier nicht verwendet werden,
+    # weil wir nicht nach einem Namen sondern nach upper(name) suchen
+    # TODO: Prüfen, ob die Methode nicht doch verwendet werden kann.
+    def find_or_create(user_id, name)
+      new_tag = Tag.new()
+      begin
+        # Bang-Version, damit "RecordNotFound"-Exception geworfen wird
+        new_tag = Tag.where("user_id = ? and upper(name) = upper(?)", user_id, name).take!
+      rescue ActiveRecord::RecordNotFound
+        new_tag = Tag.create(:user_id => user_id, :name => name)
+      end
     end
     
     def get_tags_from_text(text)
