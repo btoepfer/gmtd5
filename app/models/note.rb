@@ -57,7 +57,8 @@ class Note < ActiveRecord::Base
       v_text = ""
       # Inhalte innerhalb der <pre>-Tags werden ignoriert,
       # auch über Zeilenumbrüche hinweg (/.../m)
-      v_text = text.gsub(/<pre>.*<\/pre>/m, "")
+      # durch das ? wird aus ".*" eine non-greedy quantifier
+      v_text = text.gsub(/<pre>.*?<\/pre>/m, "")
       # non-word-boundary#word-boundary*word-boundary
       tags = v_text.scan(/\B#(\b\w+\b)/) 
     end
