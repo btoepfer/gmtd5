@@ -12,7 +12,7 @@ class Note < ActiveRecord::Base
   # Nach dem erfolgreichen Speichern werden aus dem Text 
   # die Tags (#...) extrahiert und
   # als solche gespeichert
-  after_commit  :gen_tags
+  after_save  :gen_tags
   
   # Hier können wir für eine Notiz die verwandten Notizen speichern
   attr_reader :related_notes

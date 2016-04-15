@@ -49,7 +49,9 @@ RSpec.feature "Show Note Details" do
     click_on I18n.t("edit_note")
     expect(page).to have_field :note_title
     fill_in :note_title, with: "Geänderte Notiz"
-    find('#note_content').set('The quick brown fox jumps over the lazy dog.')
+
+    #save_and_open_page
+    fill_in_trix_editor('note_content', 'The quick brown fox jumps over the lazy dog.')
     click_on I18n.t("save")
     expect(page).to have_content "Geänderte Notiz"
     expect(page).to have_content "The quick brown fox jumps over the lazy dog."
@@ -64,7 +66,7 @@ RSpec.feature "Show Note Details" do
     click_on I18n.t("create_note")
     expect(page).to have_field :note_title
     fill_in :note_title, with: "Neue Notiz"
-    find('#note_content').set('The quick brown fox jumps over the lazy dog.')
+    fill_in_trix_editor('note_content', 'The quick brown fox jumps over the lazy dog.')
     click_on I18n.t("create")
     expect(page).to have_content "Neue Notiz"
     expect(page).to have_content "The quick brown fox jumps over the lazy dog."
@@ -80,7 +82,7 @@ RSpec.feature "Show Note Details" do
     click_on I18n.t("edit_note")
     expect(page).to have_field :note_title
     fill_in :note_title, with: "Notiz mit Tags"
-    find('#note_content').set('Hier stehen #tags und #togs im Inhalt, #tags sogar zweimal')
+    fill_in_trix_editor('note_content', 'Hier stehen #tags und #togs im Inhalt, #tags sogar zweimal')
     click_on I18n.t("save")
     expect(page).to have_content "Notiz mit Tags"
     
@@ -104,7 +106,7 @@ RSpec.feature "Show Note Details" do
     click_on I18n.t("edit_note")
     expect(page).to have_field :note_title
     fill_in :note_title, with: "Notiz mit Tags"
-    find('#note_content').set('code:<pre>$(#id).fade();</pre>')
+    fill_in_trix_editor('note_content', 'code:<pre>$(#id).fade();</pre>')
     click_on I18n.t("save")
     #expect(page).not_to have_content('<mark tag_name="id">')
     # Find Tags and association
