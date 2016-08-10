@@ -280,13 +280,6 @@ CREATE UNIQUE INDEX index_users_on_username ON users USING btree (username);
 
 
 --
--- Name: notes_upper_content_pur; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE INDEX notes_upper_content_pur ON notes USING btree (upper(content_pur) varchar_pattern_ops);
-
-
---
 -- Name: notes_upper_title; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -368,4 +361,6 @@ INSERT INTO schema_migrations (version) VALUES ('20160309211908');
 INSERT INTO schema_migrations (version) VALUES ('20160309214525');
 
 INSERT INTO schema_migrations (version) VALUES ('20160328110847');
+
+INSERT INTO schema_migrations (version) VALUES ('20160810122005');
 
