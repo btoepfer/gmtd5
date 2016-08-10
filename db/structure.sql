@@ -40,7 +40,8 @@ CREATE TABLE notes (
     content text,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    content_pur text
+    content_pur text,
+    index_col_title_content tsvector
 );
 
 
@@ -294,10 +295,24 @@ CREATE UNIQUE INDEX tags_upper_name ON tags USING btree (upper((name)::text));
 
 
 --
+-- Name: title_content_idx; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX title_content_idx ON notes USING gin (index_col_title_content);
+
+
+--
 -- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (version);
+
+
+--
+-- Name: tsvectorupdate; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER tsvectorupdate BEFORE INSERT OR UPDATE ON notes FOR EACH ROW EXECUTE PROCEDURE tsvector_update_trigger('index_col_title_content', 'pg_catalog.german', 'title', 'content');
 
 
 --
@@ -363,4 +378,8 @@ INSERT INTO schema_migrations (version) VALUES ('20160309214525');
 INSERT INTO schema_migrations (version) VALUES ('20160328110847');
 
 INSERT INTO schema_migrations (version) VALUES ('20160810122005');
+
+INSERT INTO schema_migrations (version) VALUES ('20160810135308');
+
+INSERT INTO schema_migrations (version) VALUES ('20160810153039');
 

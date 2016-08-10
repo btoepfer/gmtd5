@@ -11,10 +11,14 @@ class NotesController < ApplicationController
     if params[:s].present?  # Suche nach Schlagworten
       @keywords = params[:s]
             
-      search = "%"+@keywords.upcase+"%"
+      # search = "%"+@keywords.upcase+"%"
+      search = @keywords+":*"
       
       # upcase, damit Groß-/Kleinschreibung ignoriert wird
-      where_clause = ["(upper(title) like ? or upper(content_pur) like ?)", search, search]
+      # where_clause = ["(upper(title) like ? or upper(content_pur) like ?)", search, search]
+      
+      # Volltextsuche
+      where_clause = ["index_col_title_content @@ to_tsquery(?)", search]
       
       # wir suchen nur in den Notizen des aktuell angemeldeten Users
       @notes = current_user.notes.where(where_clause).order(updated_at: :desc)
