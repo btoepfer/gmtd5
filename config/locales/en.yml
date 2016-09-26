@@ -65,3 +65,7 @@ en:
   title: "Title"
   content: "Content"
   related_notes: "Related Notes"
+  upload: "Upload a document"
+  uploaded: "Document uploaded!"
+  error_on_upload: "An error ocurred while uploading the document."
+  no_attachment: "Please save the not before attaching any files!"

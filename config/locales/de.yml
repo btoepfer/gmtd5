@@ -44,4 +44,7 @@ de:
   title: "Titel"
   content: "Inhalt"
   related_notes: "Ähnliche Notizen"
-
+  upload: "Dokument hochladen"
+  uploaded: "Dokument hochgeladen"
+  error_on_upload: "Beim Hochladen des Dokuments ist ein Fehler passiert."
+  no_attachment: "Bitte speichern Sie die Notiz zuerst!"

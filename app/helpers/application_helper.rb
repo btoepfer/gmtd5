@@ -3,7 +3,7 @@ module ApplicationHelper
   # aus einem Text wird der als search_string übergebene String
   # extrahiert und mit den als fill_text angegeben Trenner 
   # in rot hervorgehoben angezeigt.
-  def extract_result (text, search_string, fill_text=nil)
+  def extract_result (text, search_string,fill_text=nil)
     n = 200 # Anzahl der Zeichen vor und nach dem Suchtext
     
     r = /(#{search_string})/i.match(text)

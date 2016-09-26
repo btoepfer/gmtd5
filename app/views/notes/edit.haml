@@ -17,3 +17,8 @@
         %button{:id => "update", :type => "submit", :class=>"btn btn-primary"}
           %i{:class=>"fa fa-file-text"}
             = t(:save)
+            
+            
+%script
+  = "attach_document('#{form_authenticity_token}');"
+  

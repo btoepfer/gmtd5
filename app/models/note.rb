@@ -4,6 +4,7 @@ class Note < ActiveRecord::Base
   
   belongs_to :user
   has_and_belongs_to_many :tags
+  has_many :attachments, dependent: :destroy
   
   # Vor dem Speichern wird der Inhalt bereinigt um die HTML-Tags 
   # in content_pur gespeichert

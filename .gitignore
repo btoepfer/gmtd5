@@ -9,6 +9,7 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*
+/public/system/attachments/*
 !/log/.keep
 /tmp
 .byebug_history
