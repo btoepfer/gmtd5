@@ -1,6 +1,9 @@
 
 class NotesController < ApplicationController
 
+  LIMITER = " & "
+  WILDCARD = ":*" 
+  
   # Index bzw. Suchmaske
   def index
     
@@ -11,12 +14,9 @@ class NotesController < ApplicationController
     if params[:s].present?  # Suche nach Schlagworten
       @keywords = params[:s]
             
-      # search = "%"+@keywords.upcase+"%"
-      search = @keywords+":*"
-      
-      # upcase, damit Groß-/Kleinschreibung ignoriert wird
-      # where_clause = ["(upper(title) like ? or upper(content_pur) like ?)", search, search]
-      
+      # Leerzeichen werden durch "&" ersetzt und an jeden Suchbegriff wird ":*" gehängt.
+      search = add_wildcard(@keywords)
+        
       # Volltextsuche
       where_clause = ["index_col_title_content @@ to_tsquery(?)", search]
       
@@ -114,6 +114,18 @@ class NotesController < ApplicationController
       end
       #logger.debug("2. text: #{text}")
     end 
+  end
+  
+  def add_wildcard(keywords)
+    keywords_plus = ""
+    if keywords.include?(" ") then
+      keywords.split(" ").each do |k|
+        keywords_plus = keywords_plus + k + WILDCARD + LIMITER
+      end
+      keywords_plus.chomp(LIMITER)
+    else
+      keywords + WILDCARD
+    end
   end
   
 end

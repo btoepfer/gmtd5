@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe AttachmentController, type: :controller do
+RSpec.describe AttachmentsController, type: :controller do
 
 end
