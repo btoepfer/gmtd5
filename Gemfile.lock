@@ -195,6 +195,9 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.2)
+    turbolinks (5.0.1)
+      turbolinks-source (~> 5)
+    turbolinks-source (5.0.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (3.0.0)
@@ -233,6 +236,7 @@ DEPENDENCIES
   sass-rails
   sdoc
   selenium-webdriver
+  turbolinks
   uglifier
   web-console
 

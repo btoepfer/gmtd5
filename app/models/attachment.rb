@@ -4,7 +4,7 @@ class Attachment < ActiveRecord::Base
   has_attached_file :doc, 
                     path: ":rails_root/public/system/:class/:attachment/:id/:style/:filename", 
                     url: ":rails_root/public/system/:class/:attachment/:id/:style/:filename", 
-                    styles: {medium: "400x400", thumbnail: "60x60#"},
+                    styles: {medium: "500x500>", thumbnail: "60x60#"},
                     storage: "filesystem"
   validates_attachment :doc, content_type: { content_type: ["image/pjpeg", "image/jpeg", "image/gif", "image/png", "image/x-png", "application/pdf"] }
   validates_attachment_file_name :doc, matches: [/pdf\z/i, /png\z/i, /jpe?g\z/i]
