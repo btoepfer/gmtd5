@@ -1,6 +1,6 @@
 %h4
 
-%section{:class => "col-sm-12 col-md-offset-1 col-md-10"}
+%section{:class => "col-sm-12 col-md-12 col-lg-offset-1 col-lg-10"}
   = form_for(:note, url: note_path, html: { method: :put }) do |f|
     .form-group
       = f.label :title, t(:title)
@@ -21,4 +21,5 @@
             
 %script
   = "attach_document('#{form_authenticity_token}');"
+  resize_editor();
   
