@@ -37,27 +37,34 @@ mark {
 
 // Eigene Anpassung an trix-content
 // <br> soll einen halben Zeilenabstand erzeugen
-.trix-show br
-{   content: "a" !important;
+.trix-show {
+  br{   
+    content: "a" !important;
     display: block !important;
     margin-bottom: 0.5em !important;
+  }
+  h1 {
+    margin-top: 1.5em !important;
+  }
 }
 
-.trix-content pre {
-  margin: 2px 0 2px 15px;
-  overflow:auto;
-  word-break: normal !important;
-  word-wrap: normal !important;
-  white-space: pre !important;
-}
-
-.trix-content del {
-  font-family: monospace;
-  font-size: 0.95em;
-  font-weight: bold;
-  white-space: pre-wrap;
-  padding:0 2px 0 2px;
-  background-color: #fff; 
-  color: #555;
-  text-decoration: none; 
+.trix-content {
+ 
+  pre {
+    margin: 10px 0 10px 15px !important;
+    overflow:auto;
+    word-break: normal !important;
+    word-wrap: normal !important;
+    white-space: pre !important;
+  }
+  del {
+    font-family: monospace;
+    font-size: 0.95em;
+    font-weight: bold;
+    white-space: pre-wrap;
+    padding:0 2px 0 2px;
+    background-color: #fff; 
+    color: #555;
+    text-decoration: none; 
+  } 
 }
