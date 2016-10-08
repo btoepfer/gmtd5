@@ -16,6 +16,3 @@
 //= require turbolinks
 //= require_tree .
 
-  function resize_editor() {
-    $("trix-editor").css("max-height", $(window).height()-320 + "px");
-  }

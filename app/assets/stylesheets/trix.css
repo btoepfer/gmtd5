@@ -10,7 +10,7 @@ trix-editor {
   margin: 0;
   padding: 4px 8px;
   min-height: 250px;
-  max-height:580px;
+  max-height:65vh; 
   overflow-y: auto;
   outline: none; }
 trix-toolbar * {
