@@ -1,0 +1,57 @@
+$susy: (
+  columns: 12,
+  container: 1140px,
+  gutters: 1/4,
+  math: fluid,
+  output: float,
+  gutter-position: after,
+  global-box-sizing: border-box,
+  debug: (
+    image: show-columns, // (hide | show | show-columns | show-baseline)
+    color: rgba(#66f, .25),
+    output: overlay, // (background | overlay)
+    toggle: right bottom, // (left | right and top | bottom)
+    )
+  );
+
+@include border-box-sizing;
+
+.container {
+  @include container;
+  padding: 0px 10px;
+  
+  // Breakpoint for tablet view
+  @include susy-breakpoint($mobile-screen-size, 9) {
+    @include show-grid();
+  }
+  // Breakpoint for desktop view
+  @include susy-breakpoint($desktop-screen-size, 12) {
+    @include show-grid();
+  }
+}
+
+// On mobile, no margin
+#tag-cloud, #search-form {
+  @include susy-breakpoint($desktop-screen-size, 12) {
+    @include span(8);
+    margin-left: span(2) + gutter();
+  }
+  
+  text-align: center;
+  
+}
+
+// On mobile full width, on desktop 9 of 12
+.content {
+  @include susy-breakpoint($desktop-screen-size, 12) {
+    @include span(9);
+  }
+}
+
+// On mobile full width, on desktop last 3 of 12
+.sidebar {
+  @include susy-breakpoint($desktop-screen-size, 12) {
+    @include span(3 last);
+  }
+  
+}

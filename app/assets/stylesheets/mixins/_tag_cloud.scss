@@ -1,0 +1,59 @@
+$tc-xs-color:   #888; 
+$tc-xs-size:    1em;
+$tc-md-color:   #777; 
+$tc-md-size:    1.2em;
+$tc-lg-color:   #666; 
+$tc-lg-size:    1.4em;
+$tc-xl-color:   #555; 
+$tc-xl-size:    1.8em;
+
+
+#tag-cloud {
+  margin-top:1em;
+  line-height:$line-height-computed;
+  
+  ul {
+    list-style: none;
+  }
+
+  li {
+    position: relative;
+    display: block;
+    float: left;
+    margin-left: 8px;
+  }
+}
+
+.tc {
+  margin: 0 2px 0 2px;
+  
+  &:hover {
+    color: #000;
+    text-decoration:none;
+  }
+}
+
+
+.tc-xs a {
+  @extend .tc ;
+  color: $tc-xs-color;
+  font-size: $tc-xs-size;
+}
+
+.tc-md a{
+  @extend .tc;
+  color: $tc-md-color;
+  font-size: $tc-md-size;
+}
+
+.tc-lg a{
+  @extend .tc;
+  color: $tc-lg-color;
+  font-size: $tc-lg-size;
+}
+
+.tc-xl a{
+  @extend .tc;
+  color: $tc-xl-color;
+  font-size: $tc-xl-size;
+}

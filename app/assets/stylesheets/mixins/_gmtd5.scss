@@ -1,0 +1,201 @@
+html {
+  position: relative;
+  min-height: 100%;
+  font-family:$font-family-base;
+  font-size:$font-size-base;
+  line-height:$line-height-base;
+  color:$text-color-base;
+}
+
+body {
+  padding: $navbar-height 10px $footer-height 10px;
+  
+  a {
+    color:$link-color;
+    text-decoration:none;
+  }
+  a:hover {
+    color:$link-hover-color;
+    text-decoration:underline;
+  }
+}
+
+// Listen
+.list-group {
+  // No need to set list-style: none; since .list-group-item is block level
+  margin-bottom: 20px;
+  padding-left: 0; // reset padding because ul and ol
+}
+
+
+// Individual list items
+//
+// Use on `li`s or `div`s within the `.list-group` parent.
+
+.list-group-item {
+  display: block;
+  // padding: 10px 15px;
+  // Place the border on the list items and negative margin up for better styling
+  margin-bottom: -1px;
+  border: 1px solid #aaa;
+}
+
+// Formulare
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  // Chrome and Firefox set a `min-width: min-content;` on fieldsets,
+  // so we reset that to ensure it behaves more like a standard block element.
+  // See https://github.com/twbs/bootstrap/issues/12359.
+  min-width: 0;
+}
+
+
+label {
+  display: inline-block;
+  max-width: 100%; // Force IE8 to wrap long content (see https://github.com/twbs/bootstrap/issues/13141)
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: $line-height-base;
+  padding: 2px 4px;
+  font-size: $font-size-base;
+  line-height: $line-height-base*1.13;
+  color: #222;
+  background-color: #fff;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 2px solid #ccc;
+  border-radius: 90; 
+}
+
+
+// Header
+.site-header {
+  background-color: $navbar-inverse-bg;
+  border-color: $navbar-inverse-border;
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  border-width: 0 0 1px;
+  height:$navbar-height;
+}
+
+.logo {
+  float: left;
+  line-height: 2rem;
+  font-size: 1.5rem;
+}
+
+// Navigation
+nav {
+  float: right;
+  li {
+    list-style: none;
+    float: left;
+    margin-left: 1em;
+    line-height: 2rem;
+    a {
+      display:block;
+      color: #aaa;
+    }
+    a:hover{
+      color:#fff;
+      text-decoration:none;
+    };
+  }
+  
+  .toggle-nav {
+    display: block;
+    position: absolute;
+    right: 10px;
+    font-size:2em;
+  }
+
+  
+  
+  
+  .toggle-nav { display: none; }
+  .nav-mobile { display: block; }
+  
+  @media only screen and (max-width: 768px) {
+    .toggle-nav { display: block; }
+    .nav-mobile { display: none; }
+    .style-mobile {
+      background: $navbar-inverse-bg;
+      top : $navbar-height;
+      right:0px;
+      width:200px;
+      position : absolute;
+      
+      li {
+        display: block;
+        color:#fff;
+        width: 100%;
+      };
+      .nav {
+        display:block;
+        float:none;
+      };
+    }
+  }
+  
+  @media only screen and (min-width: 769px){
+    .nav-mobile {
+        display:block !important;
+    }
+  }
+}
+
+// Footer
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding-top:15px;
+  /* Set the fixed height of the footer here */
+  height: $footer-height;
+  background-color: #222;
+  color: #fff;
+}
+
+#footer a {
+  color: #fff;
+  margin-right:20px;
+}
+
+
+#message {
+  top: 55px;
+  position: fixed;
+}
+
+
+// Tool-Palette
+.tool-palette {
+  float:right;
+  letter-spacing: 2px;
+  font-size: 1.15em;
+}
+
+.tool-palette a {
+  color:#000;
+}
+
+.offset-top-18 {
+    margin-top: 1.8em;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}

@@ -13,41 +13,35 @@
     = csrf_meta_tags
     
   %body{:id => "GmTD5"}
-    %nav{:class => "navbar navbar-inverse navbar-fixed-top"}
+    %header(class = "site-header")
       .container         
-        .navbar-header
-          %button{:type=>"button", :class=>"navbar-toggle", 'data-toggle'=>"collapse", 'data-target'=>"#navbar", 'aria-expanded'=>"false", 'aria-controls'=>"navbar"}
-            %span{:class => "sr-only"}
-              ="Toggle navigation"
-            %span{:class => "icon-bar"}
-            %span{:class => "icon-bar"}
-            %span{:class => "icon-bar"}
+        .logo
           = link_to image_tag("GmTD50.svg", title: "Back to Start", alt: "Start", :height=>"50px"), root_path, {:class=>"logo"}
-          
         
-        #navbar{:class => "navbar-collapse collapse"}
+        %nav(class="nav")
           // Ist der Benutzer angemeldet
           - if user_signed_in?
             = render 'layouts/navigation'
           - else
             = render 'devise/sessions/login_form'     
           
-    .container    
-      //= render 'layouts/breadcrumb'
-      .row
-        #inhalt
-          %div{:class => "col-sm-12"}
-            = yield
+    .container   
+      = yield
             
     = render 'layouts/footer'
-    = render 'layouts/terms'
-    = render 'layouts/help'
-  
+
     //Am Ende, damit diese Box den Inhalt ueberlagert.
     = render 'layouts/messages'
     
     
   %script
     $("#message").delay(3000).addClass("in").fadeOut(1000);
+    $(function(){
+    var nav = $('.nav .toggle-nav');
+    nav.click(function(e){
+    $('.nav .nav-mobile').addClass('style-mobile').slideToggle('slow');
+    e.preventDefault();
+    });
+    });
 
   
