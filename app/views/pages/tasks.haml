@@ -1,0 +1,24 @@
+
+%h3(class="border")
+  %i{:class=>"fa fa-check-square-o"}
+  =t(:tasks)
+    
+- ["Eingang", "To Do", "In Arbeit", "Erledigt"].each do |column_title|
+  -if column_title == "Erledigt" 
+    .content-25-last
+      %h4
+        = column_title
+  
+      - 2.times do |t|
+        =render "task"
+  - else
+    .content-25
+      %h4
+        = column_title
+  
+      - 2.times do |t|
+        =render "task"
+%script
+  $( function() {
+  $(".task").draggable({handle: "h5"});
+  } );

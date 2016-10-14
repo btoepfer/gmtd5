@@ -1,0 +1,50 @@
+.content-25 {
+  @include susy-breakpoint($desktop-screen-size, 12) {
+    @include span(3 of 12);
+  }
+  border-left: 2px solid $border-color;
+
+  h4 {
+    text-align:center;
+  }
+  
+}
+
+.content-25-last {
+  @include susy-breakpoint($desktop-screen-size, 12) {
+    @include span(3 of 12);
+    @include last;
+  }
+  border-left: 2px solid $border-color;
+  border-right: 2px solid $border-color;
+  h4 {
+    text-align:center;
+  }
+}
+
+.task {
+  padding:0 10px;
+  border: 1px solid $border-color;
+  border-radius:10px;
+  margin:10px;
+  font-size:85%;
+  
+  h5 {
+    margin:0px -10px 5px -10px;
+    border-radius:10px 10px 0px 0px;
+    text-align:left;
+    padding-left:5px;
+    color:#fff;
+    background-color:$brand-primary-grey-dark;
+    cursor:move;
+    
+    a {
+      color: $navbar-link-color;
+      cursor:pointer;
+      &:hover{
+        color:#fff;
+        text-decoration:none;
+      };
+    }
+  }
+}

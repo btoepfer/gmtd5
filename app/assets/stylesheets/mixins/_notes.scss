@@ -3,7 +3,13 @@
   margin-top:10px;
 }
 
+#new-note {
+  text-align: right;
+  width: span(12);
+}
+
 #search-results {
+  border-top: 1px solid $border-color;
   float: left;
   width: span(12);
   
@@ -21,22 +27,22 @@
 }
 
 
-// TODO: Korrekt ausrichten
-#related-notes {
-  margin-top:2.10em;
-}
-
 // In der List-Group sollen die seitlichen Grenzen 
 // und der oberste Rand nicht gezeigt werden
 .list-group-item {
-  border-left: 0px;
-  border-right: 0px;
+  margin-bottom:5px;
   
   &:first-child {
     border-top: 0px;
   }
   &:last-child {
     border-bottom: 0px;
+  }
+  .list-item-content {
+    padding-bottom:5px;
+  }
+  h4 {
+    margin-bottom:5px;
   }
 }
 
@@ -52,6 +58,12 @@
   h1 {
     margin-top: 1em !important;
   }
+}
+
+// TODO: Korrekt ausrichten
+#related-notes {
+  border-top: 1px solid $border-color;
+  margin-top: $line-height-computed*3.85;
 }
 
 .trix-content {

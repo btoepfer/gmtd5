@@ -1,13 +1,13 @@
 #footer
   .container
-    .row
-      %div{:class=>"col-xs-6 text-left"}
+    .content
+      %div{:class=>"text-left"}
         %span
           %a{:href=>"#", 'data-toggle'=>"modal", 'data-target'=>"#AboutUs"}
             %i{:class=>"fa fa-info-circle"}
               = t :about_us
         %span
-          %a{ :href=>"#", 'data-toggle'=>"modal", 'data-target'=>"#terms"}
+          %a{ :href=>"terms"}
             %i{:class=>"fa fa-legal"}
               = t :terms
         %span
@@ -15,7 +15,7 @@
             %i{:class=>"fa fa-question-circle"}
               = t :help
             
-
-      %div{:class=>"col-xs-6 text-right"}
+    .sidebar
+      %div{:class=>"text-right"}
         %i{:class=>"fa fa-copyright"}
           2016 - Bernd C. Toepfer

@@ -1,0 +1,46 @@
+.wrap {
+  padding:0px 10px;
+}
+
+// Listen
+.list-group {
+  // No need to set list-style: none; since .list-group-item is block level
+  margin-bottom: 20px;
+  padding-left: 0; // reset padding because ul and ol
+}
+
+
+// Individual list items
+//
+// Use on `li`s or `div`s within the `.list-group` parent.
+
+.list-group-item {
+  display: block;
+  // padding: 10px 15px;
+  // Place the border on the list items and negative margin up for better styling
+  margin-bottom: -1px;
+  border-bottom: 1px solid $border-color;
+}
+
+// Footer
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  left:0;
+  width: 100%;
+  padding:15px 10px 0 10px;
+  /* Set the fixed height of the footer here */
+  height: $footer-height;
+  background-color: $brand-primary-grey-dark;
+  color: #fff;
+}
+
+#footer a {
+  color: #fff;
+  margin-right:20px;
+  &:hover {
+    text-decoration:none;
+  };
+}
+

@@ -1,7 +1,7 @@
 // Colors
 $brand-primary-red:       #B50000; 
 $brand-primary-grey:      #555555; 
-$brand-primary-grey-light:#444444; 
+$brand-primary-grey-light:#cccccc; 
 $brand-primary-grey-dark: #222222; 
 $brand-primary-blue:      #0059B3;
 $brand-primary-beige1:    #FFFFFF;
@@ -13,6 +13,11 @@ $brand-warning:           #f0ad4e;
 $brand-danger:            #d9534f;
 $brand-info:              $brand-primary-blue;
 $text-color-base:         #222;
+$border-color:            $brand-primary-grey-light;
+
+$line-height-base:        1.6 !default;
+
+
 
 // Mobile
 $mobile-screen-size:            768px;
@@ -23,6 +28,12 @@ $font-family-sans-serif:  "Source Sans Pro", Helvetica, Arial, sans-serif !defau
 $font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
 $font-family-base:        $font-family-sans-serif !default;
+
+$headings-font-family:    $font-family-base;
+$headings-font-weight:    bold;
+$headings-line-height:    $line-height-base;
+$headings-color:          $text-color-base;
+$headings-small-color:    lighten($text-color-base, 20%);
 
 // Font size
 $font-size-base:          16px !default;
@@ -35,18 +46,18 @@ $font-size-h4:            ceil(($font-size-base * 1.25)) !default;
 $font-size-h5:            $font-size-base !default;
 $font-size-h6:            ceil(($font-size-base * 0.85)) !default; 
 
+$line-height-computed:    floor(($font-size-base * $line-height-base)) !default; 
+
 // Links
 $link-color:              $brand-primary-blue;
 $link-hover-color:        lighten($link-color, 10%);
-
-$line-height-base:        1.6 !default;
-$line-height-computed:    floor(($font-size-base * $line-height-base)) !default; 
 
 // Navigation
 $navbar-inverse-color:     lighten($brand-primary-grey, 20%) !default;
 $navbar-inverse-bg:        $brand-primary-grey-dark !default;
 $navbar-inverse-border:    darken($navbar-inverse-bg, 20%) !default;
 $navbar-height:            60px;
+$navbar-link-color:        #aaaaaa;
 
 // Footer
 $footer-height:            60px;

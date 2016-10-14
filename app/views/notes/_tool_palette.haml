@@ -1,15 +1,16 @@
 - new_icon ||= false
 
 .tool-palette
-  - if new_icon then
-    = link_to(new_note_path, title: t(:create_note)) do
-      %i(class="fa fa-plus-square-o")
+  %small
+    - if new_icon then
+      = link_to(new_note_path, title: t(:create_note)) do
+        %i(class="fa fa-plus-square-o")
       
-  = link_to(edit_note_path(id), title: t(:edit_note)) do
-    %i(class="fa fa-edit")
-  = link_to(note_path(id), title: t(:delete_note), method: :delete, data: { confirm: t(:confirm_delete_note)}) do
-    %i(class="fa fa-trash-o")
-  = link_to("#", title: t(:export_to_pdf_note)) do
-    %i(class="fa fa-file-pdf-o")
-  = link_to("#", title: t(:mail_note)) do
-    %i(class="fa fa-envelope-o")
+    = link_to(edit_note_path(id), title: t(:edit_note)) do
+      %i(class="fa fa-edit")
+    = link_to(note_path(id), title: t(:delete_note), method: :delete, data: { confirm: t(:confirm_delete_note)}) do
+      %i(class="fa fa-trash-o")
+    = link_to("#", title: t(:export_to_pdf_note)) do
+      %i(class="fa fa-file-pdf-o")
+    = link_to("#", title: t(:mail_note)) do
+      %i(class="fa fa-envelope-o")

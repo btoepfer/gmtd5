@@ -8,10 +8,10 @@
   - @tag_cloud.html.each do |tag|
     = raw tag
 
-  %div(class="col-xs-12 col-md-2 text-right")
-    = link_to(new_note_path, title: t(:create_note), class: "btn btn-primary offset-top-18") do
-      %i(class="fa fa-plus")
-      =t(:create_note)
+#new-note
+  = link_to(new_note_path, title: t(:create_note), class: "btn btn-primary offset-top-18") do
+    %i(class="fa fa-plus")
+    =t(:create_note)
         
 
 #search-results
@@ -20,11 +20,11 @@
       %li(class = "list-group-item")
         %h4
           = link_to raw(extract_result(note.title, @keywords)), note_path(note.id)
-          %br
-          = render :partial => "tags_and_date", :locals => {:tags => note.tags, :updated_at => note.updated_at} 
+          = render :partial => "tool_palette", :locals => {:id => note.id}
+          .subheading
+            = render :partial => "tags_and_date", :locals => {:tags => note.tags, :updated_at => note.updated_at} 
             
-          %small
-            = render :partial => "tool_palette", :locals => {:id => note.id}
-          
-        =  raw extract_result(note.content_pur, @keywords, " ... ")
+            
+        .list-item-content  
+          =  raw extract_result(note.content_pur, @keywords, " ... ")
           

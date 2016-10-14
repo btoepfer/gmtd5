@@ -1,13 +1,13 @@
 $susy: (
   columns: 12,
   container: 1140px,
-  gutters: 1/4,
+  gutters: 1/3,
   math: fluid,
   output: float,
   gutter-position: after,
   global-box-sizing: border-box,
   debug: (
-    image: show-columns, // (hide | show | show-columns | show-baseline)
+    image: show, // (hide | show | show-columns | show-baseline)
     color: rgba(#66f, .25),
     output: overlay, // (background | overlay)
     toggle: right bottom, // (left | right and top | bottom)
@@ -18,7 +18,7 @@ $susy: (
 
 .container {
   @include container;
-  padding: 0px 10px;
+  //padding: 0px 10px;
   
   // Breakpoint for tablet view
   @include susy-breakpoint($mobile-screen-size, 9) {
@@ -41,10 +41,41 @@ $susy: (
   
 }
 
+#new-note {
+  @include susy-breakpoint($desktop-screen-size, 12) {
+    @include span(12);
+  }
+}
+
+
 // On mobile full width, on desktop 9 of 12
 .content {
   @include susy-breakpoint($desktop-screen-size, 12) {
     @include span(9);
+  }
+}
+
+.content-50-left {
+  @include susy-breakpoint($desktop-screen-size, 12) {
+    @include span(6);
+  }
+}
+
+.content-50-right {
+  @include susy-breakpoint($desktop-screen-size, 12) {
+    @include span(6 last);
+  }
+}
+
+.content-70-left {
+  @include susy-breakpoint($desktop-screen-size, 12) {
+    @include span(8);
+  }
+}
+
+.content-30-right {
+  @include susy-breakpoint($desktop-screen-size, 12) {
+    @include span(4last);
   }
 }
 
@@ -53,5 +84,4 @@ $susy: (
   @include susy-breakpoint($desktop-screen-size, 12) {
     @include span(3 last);
   }
-  
 }

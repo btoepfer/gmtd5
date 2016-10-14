@@ -13,6 +13,7 @@
  *
  *= require_self
  *= require trix
+ *= require jquery-ui
  */
 // Fontawesome
 @import "font-awesome-sprockets";
@@ -22,6 +23,8 @@
 @import "mixins/variables";
 @import "mixins/normalize";
 @import "mixins/typography";
+@import "mixins/layout";
+@import "mixins/forms";
 @import "susy";
 @import "mixins/susy_layout";
 @import "mixins/gmtd5";
@@ -29,3 +32,4 @@
 @import "mixins/tag_cloud";
 @import "mixins/attachment";
 @import "mixins/notes";
+@import "mixins/tasks";
