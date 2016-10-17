@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root 'pages#start'
   get "terms" => 'pages#terms'
   get "tasks" => 'pages#tasks'
+  get "tasks/:id" => 'pages#show_task'
   
   resources :notes do
     resources :attachments

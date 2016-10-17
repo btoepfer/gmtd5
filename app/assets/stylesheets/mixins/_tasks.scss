@@ -22,6 +22,12 @@
   }
 }
 
+#tasks {
+  .column {
+    min-height:65vh;
+  }
+}
+
 .task {
   padding:0 10px;
   border: 1px solid $border-color;
@@ -46,5 +52,10 @@
         text-decoration:none;
       };
     }
+  }
+  
+  .task-menu {
+    float:right;
+    padding-right:5px;
   }
 }

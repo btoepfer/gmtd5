@@ -2,23 +2,34 @@
 %h3(class="border")
   %i{:class=>"fa fa-check-square-o"}
   =t(:tasks)
-    
-- ["Eingang", "To Do", "In Arbeit", "Erledigt"].each do |column_title|
-  -if column_title == "Erledigt" 
-    .content-25-last
-      %h4
-        = column_title
-  
-      - 2.times do |t|
-        =render "task"
-  - else
-    .content-25
-      %h4
-        = column_title
-  
-      - 2.times do |t|
-        =render "task"
+#tasks
+  - ["Eingang", "To Do", "In Arbeit", "Erledigt"].each do |column_title|
+    -if column_title == "Erledigt" 
+      .content-25-last
+        %h4
+          = column_title
+        .column
+          -  4.times do |t|
+            =render "task"
+    - else
+      .content-25
+        %h4
+          = column_title
+        .column
+          -  4.times do |t|
+            =render "task"
+            
+#dialog
+  .task
+    %h5
+      Task 2.1
+      %span(class="task-menu")
+        %a(class="toggle-nav fa fa-bars" href="#{tasks_path}")
+        
 %script
   $( function() {
-  $(".task").draggable({handle: "h5"});
+  $(".column").sortable({handle:"h5", connectWith:".column"}).disableSelection();
+  } );
+  $( function() {
+  $( "#dialog" ).dialog({modal: true, autoOpen: false});
   } );
