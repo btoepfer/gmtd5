@@ -13,7 +13,7 @@ fieldset {
 label {
   display: inline-block;
   max-width: 100%; // Force IE8 to wrap long content (see https://github.com/twbs/bootstrap/issues/13141)
-  margin-bottom: 5px;
+  margin-top: 10px;
   font-weight: bold;
 }
 
@@ -27,5 +27,5 @@ label {
   color: $text-color-base;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 2px solid $brand-primary-grey-light;
-  border-radius: 5px; 
+  border-radius: $corner-radius;
 }

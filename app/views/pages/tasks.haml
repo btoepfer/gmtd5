@@ -19,17 +19,13 @@
           -  4.times do |t|
             =render "task"
             
-#dialog
-  .task
-    %h5
-      Task 2.1
-      %span(class="task-menu")
-        %a(class="toggle-nav fa fa-bars" href="#{tasks_path}")
+#dialog(title="Tasks 2.1")
+  = render partial: "show_task"
         
 %script
   $( function() {
   $(".column").sortable({handle:"h5", connectWith:".column"}).disableSelection();
   } );
   $( function() {
-  $( "#dialog" ).dialog({modal: true, autoOpen: false});
+  $( "#dialog" ).dialog({modal: true, autoOpen: false, minWidth: 600, minHeight:600});
   } );

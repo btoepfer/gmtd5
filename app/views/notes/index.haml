@@ -1,7 +1,3 @@
-#search-form
-  = form_for(:note, url: notes_path, :html => {:class=>"form-inline", :role => "search", :method => :get}) do |f|
-    .form-group
-      = f.text_field :keywords,  autofocus: true, placeholder: t(:search_for), class: "form-control",  type: "search", size:80, name:"s", value: @keywords
 
 
 #tag-cloud

@@ -1,0 +1,15 @@
+%header(class = "site-header")
+  .wrap
+    .container         
+      #logo
+        .logo
+          = link_to image_tag("GmTD50.svg", title: "Back to Start", alt: "Start", :height=>"50px"), root_path, {:class=>"logo"}
+     
+      #search-form
+        = form_for(:note, url: notes_path, :html => {:class=>"form-inline", :role => "search", :method => :get}) do |f|
+          .form-group
+            = f.text_field :keywords,  autofocus: true, placeholder: t(:search_for), class: "form-control",  type: "search", size:80, name:"s", value: @keywords
+      #nav
+        %nav(class="nav")
+          = render 'layouts/navigation'
+          

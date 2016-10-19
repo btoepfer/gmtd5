@@ -13,19 +13,8 @@
     = csrf_meta_tags
     
   %body{:id => "GmTD5"}
-    %header(class = "site-header")
-      .wrap
-        .container         
-          .logo
-            = link_to image_tag("GmTD50.svg", title: "Back to Start", alt: "Start", :height=>"50px"), root_path, {:class=>"logo"}
-        
-          %nav(class="nav")
-            // Ist der Benutzer angemeldet
-            - if user_signed_in?
-              = render 'layouts/navigation'
-            - else
-              = render 'devise/sessions/login_form'     
-
+    = render 'layouts/header'
+    
     .wrap
       .container   
         = yield

@@ -7,7 +7,7 @@
     %small
       = t "web based project and task management"
 
-.content-70-left
+.content-50-left
   %h4 
     Environment
     %small
@@ -25,13 +25,38 @@
   %br
   **Ende--
 
-.content-30-right
+.content-50-right
   - if not user_signed_in?
-    %h4
-      = t :sign_up
-      %br
-      %small
-        = t :please_register
+    #tabs
+      %ul
+        %li
+          %a(href="#tabs-1")
+            = t :log_in
+        %li
+          %a(href="#tabs-2")
+            = t :sign_up
+            
+      #tabs-1
+        %h4
+          = t :login_up
+          %br
+          %small
+            = t :please_login
     
-    = render "devise/registrations/sign_up"
+        = render "devise/sessions/login_form" 
+      
+      #tabs-2
+        %h4
+          = t :sign_up
+          %br
+          %small
+            = t :please_register
     
+        = render "devise/registrations/sign_up"
+      
+%script
+  $( function() {
+  $( "#tabs" ).tabs();
+  } );
+          
+          

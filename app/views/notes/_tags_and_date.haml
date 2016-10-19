@@ -6,5 +6,5 @@
     
   - if tags.present? then
     %i(class="fa fa-tag")
-      - tags.each do |tag|
-        = link_to "##{tag.name}", notes_path(t:tag.id)
+    - tags.each do |tag|
+      = link_to "##{tag.name}", notes_path(t:tag.id)

@@ -39,8 +39,15 @@
 #footer a {
   color: #fff;
   margin-right:20px;
-  &:hover {
+  color: $navbar-link-color;
+  
+  &:hover{
+    color:#fff;
     text-decoration:none;
   };
 }
 
+.ui-widget-header {
+  background:$brand-primary-grey-dark !important;
+  color:#fff !important;
+}
