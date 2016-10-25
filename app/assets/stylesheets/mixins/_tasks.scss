@@ -10,6 +10,7 @@
   
 }
 
+
 .content-25-last {
   @include span(3 of 12);
   @include last;
@@ -29,7 +30,7 @@
   border: 1px solid $border-color;
   border-radius: $corner-radius;
   margin:10px;
-  font-size:85%;
+  font-size:95%;
   
   h5 {
     margin:0px -10px 5px -10px;
