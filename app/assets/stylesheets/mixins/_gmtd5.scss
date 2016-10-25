@@ -1,0 +1,46 @@
+html {
+  position: relative;
+  min-height: 100%;
+  font-family:$font-family-base;
+  font-size:$font-size-base;
+  line-height:$line-height-base;
+  color:$text-color-base;
+}
+
+body {
+  padding: $navbar-height 10px $footer-height 10px;
+  
+  a {
+    color:$link-color;
+    text-decoration:none;
+  }
+  a:hover {
+    color:$link-hover-color;
+    text-decoration:underline;
+  }
+}
+
+
+#message {
+  top: 55px;
+  position: fixed;
+}
+
+
+// Tool-Palette
+.tool-palette {
+  float:right;
+  letter-spacing: 2px;
+  font-size: 1.15em;
+}
+
+.tool-palette a {
+  color:#000;
+  &:hover {
+    text-decoration:none;
+  }
+}
+
+.offset-top-18 {
+    margin-top: 1.8em;
+}

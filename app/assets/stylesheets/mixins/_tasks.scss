@@ -1,0 +1,58 @@
+
+@include border-box-sizing;
+
+.content-25 {
+  @include span(3 of 12);
+  border-right: 2px solid $border-color;
+  h4 {
+    text-align:center;
+  }
+  
+}
+
+
+.content-25-last {
+  @include span(3 of 12);
+  @include last;
+  h4 {
+    text-align:center;
+  }
+}
+
+#tasks {
+  .column {
+    min-height:65vh;
+  }
+}
+
+.task {
+  padding:0 10px;
+  border: 1px solid $border-color;
+  border-radius: $corner-radius;
+  margin:10px;
+  font-size:95%;
+  
+  h5 {
+    margin:0px -10px 5px -10px;
+    border-radius: 2px 2px 0px 0px;
+    text-align:left;
+    padding-left:5px;
+    color:#fff;
+    background-color:$brand-primary-grey-dark;
+    cursor:move;
+    
+    a {
+      color: $navbar-link-color;
+      cursor:pointer;
+      &:hover{
+        color:#fff;
+        text-decoration:none;
+      };
+    }
+  }
+  
+  .task-menu {
+    float:right;
+    padding-right:5px;
+  }
+}

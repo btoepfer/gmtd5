@@ -1,3 +1,4 @@
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -11,14 +12,26 @@
  * file per style scope.
  *
  *= require_self
- *= require 'bootstrap-sass-official'
- *= require_tree .
+ *= require trix
+ *= require jquery-ui
+ 
  */
+// Fontawesome
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-$brand-primary:         darken(#428bca, 6.5%) !default; // #337ab7
-$brand-success:         #5cb85c !default;
-$brand-info:            #5bc0de !default;
-$brand-warning:         #f0ad4e !default;
-$brand-danger:          #d9534f !default;
+// SCSS
+@import "mixins/variables";
+@import "mixins/normalize";
+@import "mixins/typography";
+@import "mixins/layout";
+@import "mixins/forms";
+@import "susy";
+@import "mixins/susy_layout";
+@import "mixins/gmtd5";
+@import "mixins/navigation";
+@import "mixins/tag_cloud";
+@import "mixins/attachment";
+@import "mixins/notes";
+@import "mixins/tasks";
+

@@ -1,23 +1,28 @@
+%ul{:class=>"nav"}
+  %li
+    %a(class="toggle-nav fa fa-bars" href="#")
 
-.navbar-right
-  %ul{:class=>"nav navbar-nav"}
+.nav-mobile
+  %ul{:class=>"nav"}
     %li
       %a{:href=>"#"}
         %i{:class=>"fa fa-book"}
-          = t :projects
+        = t :projects
     %li
-      %a{:href=>"#"}
+      %a{:href=>tasks_path}
         %i{:class=>"fa fa-check"}
-          = t :tasks
+        = t :tasks
     %li
       %a{:href=>notes_path}
         %i{:class=>"fa fa-file-text"}
-          = t :notes
+        = t :notes
     %li
       &nbsp;&nbsp;
-    %li
-      %a{:href=>edit_user_registration_path}
-        %i{:class=>"fa fa-user"}
+        
+    - if  user_signed_in?
+      %li
+        %a{:href=>edit_user_registration_path}
+          %i{:class=>"fa fa-user"}
           = t :account
-    %li
-      = link_to t(:log_out), destroy_user_session_path, method: :delete
+      %li
+        = link_to t(:log_out), destroy_user_session_path, method: :delete

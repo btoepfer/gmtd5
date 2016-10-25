@@ -1,27 +1,21 @@
 - if @note then
-  %div(class="col-xs-12 col-md-8 ")
-    .page-header
-      %h3
-        = @note.title if @note
-      .row
-        %div(class="col-xs-6 text-left")
-          = render :partial => "tags_and_date", :locals => {:tags => @note.tags, :updated_at => @note.updated_at} 
-      
-        %div(class="col-xs-6 text-right")
-          = render :partial => "tool_palette", :locals => {:id => @note.id, :new_icon => true}
+  .content
+    %h3
+      = @note.title if @note
+      .subheading
+        = render :partial => "tags_and_date", :locals => {:tags => @note.tags, :updated_at => @note.updated_at} 
+        = render :partial => "tool_palette", :locals => {:id => @note.id, :new_icon => true}
       
     %section
       .trix-content(class="trix-show")
         = find_and_preserve @note.content.html_safe
-  
 
-  #related-notes(class="col-xs-12 col-md-4")
-    .page-header
-      %h4
-        %i(class="fa fa-tags")
-        = t :related_notes
+  .sidebar(id="related-notes")
+    %h4
+      %i(class="fa fa-tags")
+      = t :related_notes
 
-    %ol(class="list-group")
+    %ul(class="list-group")
       - @note.related_notes.each do |note|
         %li(class="list-group-item")
           %h5

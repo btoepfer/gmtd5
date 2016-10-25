@@ -197,7 +197,7 @@ trix-editor .attachment .caption.caption-editing textarea {
   .trix-content a[data-trix-attachment]:hover, .trix-content a[data-trix-attachment]:visited:hover {
     color: inherit; }
 .trix-content .attachment {
-  position: relative;
+  //position: relative;
   display: inline-block;
   max-width: 100%;
   margin: 0;

@@ -1,0 +1,85 @@
+$susy: (
+  columns: 12,
+  container: 1140px,
+  gutters: 1/3,
+  math: fluid,
+  output: float,
+  gutter-position: after,
+  global-box-sizing: border-box,
+  debug: (
+    image: show, // (hide | show | show-columns | show-baseline)
+    color: rgba(#66f, .25),
+    output: overlay, // (background | overlay)
+    toggle: right bottom, // (left | right and top | bottom)
+    )
+  );
+
+@include border-box-sizing;
+
+.container {
+  @include container;
+}
+
+// On mobile, no margin
+#tag-cloud{
+  @include susy-breakpoint($desktop-screen-size, 12) {
+    @include span(8);
+    margin-left: span(2) + gutter();
+  }
+}
+
+#logo {
+  @include span(3);
+}
+
+#nav {
+  @include span(3 last);
+}
+
+#search-form {
+  @include span(6);
+  //margin-left: span(2) + gutter();
+  text-align: center;
+}
+
+#new-note {
+ @include span(12);
+}
+
+
+.content {
+  @include susy-breakpoint($desktop-screen-size, 12) {
+    @include span(9);
+  }
+}
+
+.content-50-left {
+  @include susy-breakpoint($desktop-screen-size, 12) {
+    @include span(6);
+  }
+}
+
+.content-50-right {
+  @include susy-breakpoint($desktop-screen-size, 12) {
+    @include span(6 last);
+  }
+}
+
+.content-70-left {
+  @include susy-breakpoint($desktop-screen-size, 12) {
+    @include span(8);
+  }
+}
+
+.content-30-right {
+  @include susy-breakpoint($desktop-screen-size, 12) {
+    @include span(4last);
+  }
+}
+
+// On mobile full width, on desktop last 3 of 12
+.sidebar {
+  @include susy-breakpoint($desktop-screen-size, 12) {
+    @include span(3 last);
+  }
+}

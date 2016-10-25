@@ -11,12 +11,13 @@ gem 'sass-rails'
 gem 'uglifier'
 
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails'
+#gem 'coffee-rails'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder'
@@ -27,12 +28,13 @@ gem 'sdoc', group: :doc
 gem 'devise'
 gem 'haml'
 # gem 'RedCloth'
-gem 'bower-rails'
 gem 'font-awesome-sass'
 
 gem "paperclip", "~> 5.0.0"
 
 gem 'turbolinks'  
+gem 'susy'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
