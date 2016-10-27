@@ -19,13 +19,4 @@
           -  4.times do |t|
             =render "task"
             
-#dialog(title="Tasks 2.1")
-  = render partial: "show_task"
-        
-%script
-  $( function() {
-  $(".column").sortable({handle:"h5", connectWith:".column"}).disableSelection();
-  } );
-  $( function() {
-  $( "#dialog" ).dialog({modal: true, autoOpen: false, minWidth: 600, minHeight:600});
-  } );
+

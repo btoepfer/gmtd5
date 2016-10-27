@@ -11,6 +11,7 @@ class PagesController < ApplicationController
   end
   
   def show_task
+    render component: 'Task', props: { title: "Servertask", content: "Serverinhalt", dueDate: "25.10.2016" }, tag: 'span', class: 'todo'
   end
   
   def inside

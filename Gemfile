@@ -17,7 +17,9 @@ gem 'uglifier'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-gem 'jquery-ui-rails'
+#gem 'jquery-ui-rails'
+#gem 'turbolinks'  
+gem 'react-rails'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder'
@@ -32,7 +34,7 @@ gem 'font-awesome-sass'
 
 gem "paperclip", "~> 5.0.0"
 
-gem 'turbolinks'  
+
 gem 'susy'
 
 

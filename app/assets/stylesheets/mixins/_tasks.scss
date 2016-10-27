@@ -56,3 +56,20 @@
     padding-right:5px;
   }
 }
+
+.menu-off {
+  display:none;
+}
+
+.menu-on {
+  background-color:#fff;
+  color:$brand-primary-grey-dark;
+  position: absolute;
+  width:80px;
+  display:block;
+  border: 1px solid $border-color;
+  h5 {
+    background-color:#fff;
+    color:$brand-primary-grey-dark;
+  }
+}
