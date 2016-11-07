@@ -19,6 +19,7 @@ gem 'uglifier'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder'
 

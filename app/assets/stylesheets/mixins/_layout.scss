@@ -58,3 +58,32 @@
     color:#fff !important;
   }
 }
+
+#message {
+  position: absolute;
+  margin: 0px auto;
+  top: $navbar-height;
+  right: 0;  
+  bottom: 0;
+  left: 0;
+  width:33%;
+  height:$navbar-height;
+  
+}
+
+.alert {
+  padding:10px 20px;
+  border: 1px solid transparent;
+  border-radius: $corner-radius;
+  color:#fff;
+}
+
+.alert-success {
+  background-color:$brand-success;
+}
+.alert-info {
+  background-color:$brand-info;
+}
+.alert-danger {
+  background-color:$brand-danger;
+}

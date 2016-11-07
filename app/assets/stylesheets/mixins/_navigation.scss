@@ -41,13 +41,14 @@ nav {
     font-size:2em;
   }
 
-  .toggle-nav { display: none; }
+  
   .nav-mobile { display: none; }
   
   @media only screen and (max-width: 2008px) {
     .toggle-nav { display: block; }
     .nav-mobile { display: none; }
     .style-mobile {
+      display:none;
       background: $navbar-inverse-bg;
       position:absolute;
       top : $navbar-height;

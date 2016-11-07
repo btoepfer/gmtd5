@@ -16,13 +16,16 @@
     = render 'layouts/header'
     
     .wrap
+      
       .container   
         = yield
+        
+      //Am Ende, damit diese Box den Inhalt ueberlagert.
+      = render 'layouts/messages'
             
     = render 'layouts/footer'
 
-    //Am Ende, damit diese Box den Inhalt ueberlagert.
-    = render 'layouts/messages'
+    
     
     
   %script

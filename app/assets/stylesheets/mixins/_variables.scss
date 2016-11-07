@@ -25,7 +25,7 @@ $mobile-screen-size:            768px;
 $desktop-screen-size:           960px;
 
 // Fonts
-$font-family-sans-serif:  "Source Sans Pro", Helvetica, Arial, sans-serif !default;
+$font-family-sans-serif:  Helvetica, Arial, sans-serif !default;
 $font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
 $font-family-base:        $font-family-sans-serif !default;
@@ -47,11 +47,13 @@ $font-size-h4:            ceil(($font-size-base * 1.25)) !default;
 $font-size-h5:            $font-size-base !default;
 $font-size-h6:            ceil(($font-size-base * 0.85)) !default; 
 
+$btn-font-weight:         normal;
+
 $line-height-computed:    floor(($font-size-base * $line-height-base)) !default; 
 
 // Links
 $link-color:              $brand-primary-blue;
-$link-hover-color:        lighten($link-color, 10%);
+$link-hover-color:        lighten($link-color, 5%);
 
 // Navigation
 $navbar-inverse-color:     lighten($brand-primary-grey, 20%) !default;

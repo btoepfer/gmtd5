@@ -1,0 +1,46 @@
+//
+// Buttons
+// --------------------------------------------------
+
+
+// Base styles
+// --------------------------------------------------
+
+.btn {
+  font-family:$font-family-base;
+  font-size:$font-size-base;
+  display: inline-block;
+  margin-bottom: 2px;
+  font-weight: $btn-font-weight;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-color:$link-color;
+  color:#fff;
+  padding:10px 12px;
+  background-image: none; 
+  border: 1px solid transparent;
+  border-radius: $corner-radius;
+  white-space: nowrap;
+  
+
+  &:hover,
+  &:focus,
+  &.focus {
+    background-color:$link-hover-color ;
+    color:#fff;
+    text-decoration: none;
+  }
+
+  &:active {
+    outline: 0;
+    background-image: none;
+  }
+
+}
+
+
+
+
+
