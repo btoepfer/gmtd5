@@ -90,6 +90,24 @@ class NotesController < ApplicationController
       redirect_to notes_path
   end
   
+  def autocomplete
+    @note_titles = []
+    if params[:term].present?  # Suche nach Schlagworten
+      @keywords = params[:term]
+            
+      # Leerzeichen werden durch "&" ersetzt und an jeden Suchbegriff wird ":*" gehängt.
+      search = add_wildcard(@keywords)
+        
+      # Volltextsuche
+      where_clause = ["index_col_title_content @@ to_tsquery(?)", search]
+      
+      # wir suchen nur in den Notizen des aktuell angemeldeten Users
+      @notes = current_user.notes.select("id, title, content").where(where_clause).order(updated_at: :desc).limit(20)
+    
+      render :plain => @notes.to_json, :status => 200
+    end 
+  end
+  
   # Private Methoden
   private
   def find_note(id)

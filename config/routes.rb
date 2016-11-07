@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   get "tasks" => 'pages#tasks'
   get "tasks/:id" => 'pages#show_task'
   
-  resources :notes do
+  get 'autocomplete' => 'notes#autocomplete'
+  
+  resources :notes do  
     resources :attachments
   end
   

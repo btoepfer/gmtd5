@@ -8,6 +8,14 @@
   width: span(12);
 }
 
+#searching {
+  width: span(6);
+  margin-left: span(3)+gutter();
+  background-color:#aaa;
+  border: 1px solid $border-color;
+  z-index:99;
+}
+
 #search-results {
   border-top: 1px solid $border-color;
   float: left;

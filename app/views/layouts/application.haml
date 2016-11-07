@@ -16,10 +16,10 @@
     = render 'layouts/header'
     
     .wrap
-      
       .container   
         = yield
         
+      
       //Am Ende, damit diese Box den Inhalt ueberlagert.
       = render 'layouts/messages'
             
@@ -31,5 +31,7 @@
   %script
     $("#message").delay(3000).addClass("in").fadeOut(1000);
     toggle_menu();
+    add_autocomplete("#{autocomplete_path}", "#{notes_path}/");
+
 
   

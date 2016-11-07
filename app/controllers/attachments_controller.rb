@@ -7,7 +7,7 @@ class AttachmentsController < ApplicationController
     
     if @attachment.save then
       flash.now[t(:uploaded)]
-      render :text => @attachment.to_json , :status => 200
+      render :plain => @attachment.to_json , :status => 200
     else
       flash.now[t(:error_on_upload)]
     end
