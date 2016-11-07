@@ -1,7 +1,8 @@
 class TaskMenu extends React.Component {
-  constructor() {
+  constructor(id) {
     super();
     this.state = {
+      id: id,
       showMenu: "menu-off"
     }
   }

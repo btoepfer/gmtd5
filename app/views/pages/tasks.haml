@@ -9,14 +9,12 @@
         %h4
           = column_title
         .column
-          -  4.times do |t|
-            =render "task"
     - else
       .content-25
         %h4
           = column_title
         .column
-          -  4.times do |t|
-            =render "task"
+          -if column_title == "In Arbeit" 
+            = react_component("TaskList")
             
 
