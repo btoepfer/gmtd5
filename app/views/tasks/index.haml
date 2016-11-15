@@ -1,0 +1,31 @@
+%h3(class="border")
+  %i{:class=>"fa fa-check-square-o"}
+  =t(:tasks)
+  
+#tasks
+  - @column_titles.each_with_index do |column_title, i|
+    - logger.debug("#{i} #{column_title}")
+    -if i == 2 
+      .content-33-last
+        %h4
+          = raw column_title
+        .column
+          -  @tasks.select {|n| n.status==2}.each do |t|
+            = render partial: "task", :locals => {:task => t} 
+    - else
+      .content-33
+        %h4
+          = raw column_title
+        .column
+          -  @tasks.select {|n| n.status==i}.each do |t|
+            = render partial: "task", :locals => {:task => t} 
+            
+
+        
+%script
+  $( function() {
+  $(".column").sortable({handle:"h5", connectWith:".column"}).disableSelection();
+  } );
+  $( function() {
+  $( "#dialog" ).dialog({modal: true, autoOpen: false, minWidth: 600, minHeight:600});
+  } );

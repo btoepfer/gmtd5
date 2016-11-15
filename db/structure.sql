@@ -30,6 +30,18 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
+-- Name: ar_internal_metadata; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE ar_internal_metadata (
+    key character varying NOT NULL,
+    value character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
 -- Name: attachments; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -152,6 +164,42 @@ ALTER SEQUENCE tags_id_seq OWNED BY tags.id;
 
 
 --
+-- Name: tasks; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE tasks (
+    id integer NOT NULL,
+    user_id integer NOT NULL,
+    name character varying(100) NOT NULL,
+    status integer DEFAULT 0 NOT NULL,
+    due_date date,
+    sort integer DEFAULT 1 NOT NULL,
+    content text,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: tasks_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE tasks_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: tasks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE tasks_id_seq OWNED BY tasks.id;
+
+
+--
 -- Name: users; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -226,7 +274,22 @@ ALTER TABLE ONLY tags ALTER COLUMN id SET DEFAULT nextval('tags_id_seq'::regclas
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY tasks ALTER COLUMN id SET DEFAULT nextval('tasks_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+
+
+--
+-- Name: ar_internal_metadata_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY ar_internal_metadata
+    ADD CONSTRAINT ar_internal_metadata_pkey PRIMARY KEY (key);
 
 
 --
@@ -251,6 +314,14 @@ ALTER TABLE ONLY notes
 
 ALTER TABLE ONLY tags
     ADD CONSTRAINT tags_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tasks_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY tasks
+    ADD CONSTRAINT tasks_pkey PRIMARY KEY (id);
 
 
 --
@@ -301,6 +372,20 @@ CREATE INDEX index_notes_tags_on_tag_id ON notes_tags USING btree (tag_id);
 --
 
 CREATE INDEX index_tags_on_user_id ON tags USING btree (user_id);
+
+
+--
+-- Name: index_tasks_on_status; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_tasks_on_status ON tasks USING btree (status);
+
+
+--
+-- Name: index_tasks_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_tasks_on_user_id ON tasks USING btree (user_id);
 
 
 --
@@ -382,6 +467,14 @@ ALTER TABLE ONLY notes_tags
 
 
 --
+-- Name: fk_rails_4d2a9e4d7e; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tasks
+    ADD CONSTRAINT fk_rails_4d2a9e4d7e FOREIGN KEY (user_id) REFERENCES users(id);
+
+
+--
 -- Name: fk_rails_5d582b4494; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -419,35 +512,6 @@ ALTER TABLE ONLY notes_tags
 
 SET search_path TO "$user", public;
 
-INSERT INTO schema_migrations (version) VALUES ('20160103185106');
+INSERT INTO schema_migrations (version) VALUES ('20160103185106'), ('20160119081215'), ('20160129153243'), ('20160206132148'), ('20160206132801'), ('20160308085742'), ('20160308085929'), ('20160308093745'), ('20160308144204'), ('20160309211908'), ('20160309214525'), ('20160328110847'), ('20160810122005'), ('20160810135308'), ('20160810153039'), ('20160916154358'), ('20161115115817');
 
-INSERT INTO schema_migrations (version) VALUES ('20160119081215');
-
-INSERT INTO schema_migrations (version) VALUES ('20160129153243');
-
-INSERT INTO schema_migrations (version) VALUES ('20160206132148');
-
-INSERT INTO schema_migrations (version) VALUES ('20160206132801');
-
-INSERT INTO schema_migrations (version) VALUES ('20160308085742');
-
-INSERT INTO schema_migrations (version) VALUES ('20160308085929');
-
-INSERT INTO schema_migrations (version) VALUES ('20160308093745');
-
-INSERT INTO schema_migrations (version) VALUES ('20160308144204');
-
-INSERT INTO schema_migrations (version) VALUES ('20160309211908');
-
-INSERT INTO schema_migrations (version) VALUES ('20160309214525');
-
-INSERT INTO schema_migrations (version) VALUES ('20160328110847');
-
-INSERT INTO schema_migrations (version) VALUES ('20160810122005');
-
-INSERT INTO schema_migrations (version) VALUES ('20160810135308');
-
-INSERT INTO schema_migrations (version) VALUES ('20160810153039');
-
-INSERT INTO schema_migrations (version) VALUES ('20160916154358');
 

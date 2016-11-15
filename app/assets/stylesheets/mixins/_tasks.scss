@@ -1,8 +1,8 @@
 
 @include border-box-sizing;
 
-.content-25 {
-  @include span(3 of 12);
+.content-33 {
+  @include span(4 of 12);
   border-right: 2px solid $border-color;
   h4 {
     text-align:center;
@@ -11,8 +11,8 @@
 }
 
 
-.content-25-last {
-  @include span(3 of 12);
+.content-33-last {
+  @include span(4 of 12);
   @include last;
   h4 {
     text-align:center;
@@ -30,7 +30,8 @@
   border: 1px solid $border-color;
   border-radius: $corner-radius;
   margin:10px;
-  font-size:95%;
+  min-height:11em;
+  font-size:100%;
   
   h5 {
     margin:0px -10px 5px -10px;
@@ -42,10 +43,10 @@
     cursor:move;
     
     a {
-      color: $navbar-link-color;
+      color: #fff;
       cursor:pointer;
       &:hover{
-        color:#fff;
+        color:$navbar-link-color;
         text-decoration:none;
       };
     }
@@ -54,5 +55,18 @@
   .task-menu {
     float:right;
     padding-right:5px;
+    clear: break;
+  }
+  
+  .due-date {
+    float:right;
+    a {
+      color: #000;
+      cursor:pointer;
+      &:hover{
+        color:$navbar-link-color;
+        text-decoration:none;
+      };
+    }
   }
 }

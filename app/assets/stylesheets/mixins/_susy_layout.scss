@@ -5,15 +5,13 @@ $susy: (
   math: fluid,
   output: float,
   gutter-position: after,
-  global-box-sizing: border-box
-  /* ,
+  global-box-sizing: border-box,
   debug: (
     image: show, // (hide | show | show-columns | show-baseline)
     color: rgba(#66f, .25),
     output: overlay, // (background | overlay)
     toggle: right bottom, // (left | right and top | bottom)
     )
-    */
   );
 
 @include border-box-sizing;

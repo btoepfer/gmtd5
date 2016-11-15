@@ -1,0 +1,17 @@
+- name_abbreviated = "#{task.name[0..35]}#{task.name.length>35 ? '...' : ''}"
+- content_abbreviated = "#{task.content[0..200]}#{task.content.length>200 ? '...' : ''}"
+
+- status_icon = (task.status == 2 ? "fa-check-square-o" : (task.status == 1 ? "fa-pencil-square-o" : "fa-square-o"))
+
+.task
+  %h5
+    %a(class="fa #{status_icon}")
+    = name_abbreviated
+    .task-menu
+      %a(class="toggle-nav fa fa-bars" href="javascript:$('#dialog').dialog('open');")
+  %div
+    .due-date
+      %a(class="fa fa-calendar")
+      = task.due_date.strftime("%d. %b. %Y")
+    = content_abbreviated
+    

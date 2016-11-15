@@ -7,9 +7,6 @@ class PagesController < ApplicationController
   def terms
   end
   
-  def tasks
-  end
-  
   def show_task
   end
   

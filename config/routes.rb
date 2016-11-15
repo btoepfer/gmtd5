@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'pages#start'
   get "terms" => 'pages#terms'
-  get "tasks" => 'pages#tasks'
   get "tasks/:id" => 'pages#show_task'
   
   get 'autocomplete' => 'notes#autocomplete'
@@ -15,6 +14,8 @@ Rails.application.routes.draw do
   resources :notes do  
     resources :attachments
   end
+  
+  resources :tasks
   
  
   
