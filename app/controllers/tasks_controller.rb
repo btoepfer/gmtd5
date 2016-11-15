@@ -7,4 +7,12 @@ class TasksController < ApplicationController
     @tasks = current_user.tasks.order(status: :asc)
     @column_titles = COLUMN_TITLES
   end
+  
+  def update_status
+    @task = Task.find(params[:id])
+    @task.status = params[:status]
+    @task.save!
+    head :ok
+  end
+  
 end

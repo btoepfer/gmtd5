@@ -15,7 +15,11 @@ Rails.application.routes.draw do
     resources :attachments
   end
   
-  resources :tasks
+  resources :tasks do
+    member do
+      put 'update_status'
+    end
+  end
   
  
   
